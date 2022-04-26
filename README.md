@@ -6,8 +6,8 @@ ToDo/Done
 1. ~~Making a git repository~~
 2. ~~Fork SUSHI repository~~
 3. ~~Fork ezRun repository~~
-4. Demo local SUSHI instance on fgcz-c-047.uzh.ch
-5. Test local instance access, job submission
+4. ~~Demo local SUSHI instance on fgcz-c-047.uzh.ch~~
+5. ~~Test local instance access, job submission~~
 
 Log
 ```
@@ -16,12 +16,15 @@ Log
 22-04-26 14:29 masaomi@fgcz-c-047:/srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426
 $ tar zxvf flo_sushi_20220426.tgz
 $ cd flo_sushi_20220426/master/
+$ source /usr/local/ngseq/etc/lmod_profile
+$ module load Dev/Ruby/3.0.3
 $ bundle exec rails s -e production -b fgcz-c-047.uzh.ch -p 5000
 ```
 
 Then
 * start VPN
 * access http://fgcz-c-047.uzh.ch:5000
+ * Login by BFabric account/password
 
 Setup test dataset in p1535
 1. Select project 1535
@@ -43,10 +46,8 @@ masaomi  16798 20.6  0.0 321176 125024 pts/58  Sl+  14:49   0:04 /misc/ngseq10/p
 $ kill -9 16798
 ```
 
-
-
 Note
-* /srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426/flo_sushi_20220426.tgz
+* The SUSHI instance source code: /srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426/flo_sushi_20220426.tgz
 
 
 
