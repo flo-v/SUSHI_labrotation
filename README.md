@@ -10,17 +10,6 @@ ToDo/Done
 5. ~~Test local instance access, job submission~~
 6. ~~Get windows subsystem running for linux commands~~
 7. ~~Get Github to work with access tokens~~
-6. ~~Get windows subsystem running for linux commands~~
-7. ~~Get Github to work with access tokens~~
-6. ~~Get windows subsystem running for linux commands~~
-7. ~~Get Github to work with access tokens~~
-6. ~~Get windows subsystem running for linux commands~~
-7. ~~Get Github to work with access tokens~~
-6. ~~Get windows subsystem running for linux commands~~
-7. ~~Get Github to work with access tokens~~
-6. ~~Get windows subsystem running for linux commands~~
-7. ~~Get Github to work with access tokens~~
-
 Log
 ```
 22-04-26 14:26 masaomi@fgcz-c-047: mkdir /srv/kenlab/flo
