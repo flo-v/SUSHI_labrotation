@@ -8,6 +8,18 @@ ToDo/Done
 3. ~~Fork ezRun repository~~
 4. ~~Demo local SUSHI instance on fgcz-c-047.uzh.ch~~
 5. ~~Test local instance access, job submission~~
+6. ~~Get windows subsystem running for linux commands~~
+7. ~~Get Github to work with access tokens~~
+6. ~~Get windows subsystem running for linux commands~~
+7. ~~Get Github to work with access tokens~~
+6. ~~Get windows subsystem running for linux commands~~
+7. ~~Get Github to work with access tokens~~
+6. ~~Get windows subsystem running for linux commands~~
+7. ~~Get Github to work with access tokens~~
+6. ~~Get windows subsystem running for linux commands~~
+7. ~~Get Github to work with access tokens~~
+6. ~~Get windows subsystem running for linux commands~~
+7. ~~Get Github to work with access tokens~~
 
 Log
 ```
