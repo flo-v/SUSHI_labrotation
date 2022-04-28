@@ -1,6 +1,6 @@
 # SUSHI_labrotation
 
-## 26 Apr. 2022, Kick-off meeting, Florian + Masa
+## 26 Apr. 2022, Kick-off meeting, Florian + Masa and work up to moment when test sushi app is running on flo's machine
 
 ToDo/Done
 1. ~~Making a git repository~~
@@ -20,6 +20,12 @@ $ source /usr/local/ngseq/etc/lmod_profile
 $ module load Dev/Ruby/3.0.3
 $ bundle exec rails s -e production -b fgcz-c-047.uzh.ch -p 5000
 ```
+
+### Questions/problems:
+* what is the adress for the ssh connection to the server again? maybe I got somthing wrong?
+
+* when starting the VPN access to http://fgcz-c-047.uzh.ch:5000 doesn't work
+
 
 Then
 * start VPN
