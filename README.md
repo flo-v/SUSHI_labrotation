@@ -1,3 +1,6 @@
+
+{{toc}}
+
 # SUSHI_labrotation
 
 ## 26 Apr. 2022, Kick-off meeting, Florian + Masa and work up to moment when test sushi app is running on flo's machine
