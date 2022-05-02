@@ -3,11 +3,11 @@
 Table of Contents
 =================
 
- * [26 Apr\. 2022, Kick\-off meeting, Florian \+ Masa and work up to moment when test sushi app is running on flo's machine](#26-apr-2022-kick-off-meeting-florian--masa-and-work-up-to-moment-when-test-sushi-app-is-running-on-flos-machine)
+ * [26 Apr\. 2022, Kick\-off meeting, Florian \+ Masa](#26-apr-2022-kick-off-meeting-florian--masa)
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)
 
-## 26 Apr. 2022, Kick-off meeting, Florian + Masa and work up to moment when test sushi app is running on flo's machine
+## 26 Apr. 2022, Kick-off meeting, Florian + Masa
 
 ToDo/Done
 1. ~~Making a git repository~~
