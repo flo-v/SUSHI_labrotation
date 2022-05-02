@@ -64,3 +64,5 @@ Setup test dataset in p1535
 
 Then next
 * Masa will give you how to make ezRun application with SUSHI
+
+## 26 Apr. 2022, work up to moment when test sushi app is running on flo's machine
