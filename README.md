@@ -110,3 +110,4 @@ $ bundle exec rails s -e production -b fgcz-c-047.uzh.ch -p 5000
 
 ## 04 May 2022, ezRun explanation meeting, Florian \+ Masa
 
+
