@@ -111,4 +111,177 @@ MinimalApp_flo cannot be imported
 
 ## 04 May 2022, ezRun explanation meeting, Florian \+ Masa
 
+Cheat Sheet
+* https://docs.google.com/document/d/1wTNdJgTzK7J54p90yH-djF5L_4VUwl64JknVmSCNxCE
+
+ToDo (by Florian)
+```
+22-05-04 10:10 masaomi@fgcz-c-047:/srv/kenlab/flo
+$ cp -r /srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426/flo_sushi_20220504.tgz .
+$ tar zxvf flo_sushi_20220504.tgz
+```
+
+Log
+1. Start VPN
+2. test run SUSHI
+
+```
+22-05-04 10:15 masaomi@fgcz-c-047:/srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426/flo_sushi_20220504/master
+$ bundle exec rails s -e production -b fgcz-c-047.uzh.ch -p 4001
+```
+
+Access
+* http://fgcz-c-047.uzh.ch:4001/
+* Job submission test
+
+Note
+* Florian could use port:5000
+
+Next
+* Minimal SUSHI App test
+
+Log
+```
+22-05-04 10:32 masaomi@fgcz-c-047:/srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426/flo_sushi_20220504/master
+$ git add lib/MinimalApp.rb
+
+22-05-04 10:33 masaomi@fgcz-c-047:/srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426/flo_sushi_20220504/master
+$ git commit -m "Added MinimalApp.rb"
+[master 820e59d1] Added MinimalApp.rb
+ 1 file changed, 32 insertions(+)
+ create mode 100644 master/lib/MinimalApp.rb
+
+22-05-04 10:33 masaomi@fgcz-c-047:/srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426/flo_sushi_20220504/master
+$ git push
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 32 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 793 bytes | 793.00 KiB/s, done.
+Total 5 (delta 3), reused 0 (delta 0)
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To github.com:flo-v/sushi.git
+ ! [remote rejected]   master -> master (permission denied)
+error: failed to push some refs to 'git@github.com:flo-v/sushi.git'
+```
+
+Note
+* I do not know why this failed, but Florian should be able to do git push.
+* I may not be a collaborator of sushi.git
+
+You are right, it worked
+```
+22-05-04 10:36 masaomi@fgcz-c-047:/srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426/flo_sushi_20220504/master
+$ git push
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 32 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 793 bytes | 793.00 KiB/s, done.
+Total 5 (delta 3), reused 0 (delta 0)
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To github.com:flo-v/sushi.git
+   4450a47f..820e59d1  master -> master
+```
+* Done
+
+Next
+* ezRun installation and run test
+
+Log
+```
+22-05-04 10:39 masaomi@fgcz-c-047:/srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426
+$ which R
+/usr/local/ngseq/bin/R
+22-05-04 10:40 masaomi@fgcz-c-047:/srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426
+$ R --version
+R version 4.1.2 (2021-11-01) -- "Bird Hippie"
+
+22-05-04 10:41 masaomi@fgcz-c-047:/srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426
+$ R
+
+> .libPaths()
+[1] "/home/masaomi/R/x86_64-pc-linux-gnu-library/4.1"
+[2] "/misc/ngseq10/packages/Dev/R/4.1.2/lib/R/library"
+
+22-05-04 10:42 masaomi@fgcz-c-047:/srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426
+$ vim ~/.Rprofile
+.libPaths("/srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426/RLIBS")
+
+22-05-04 10:38 masaomi@fgcz-c-047:/srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426
+$ git clone git@github.com:flo-v/ezRun.git
+
+$ vim ~/.bashrc
+alias ezins='R CMD INSTALL /srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426/ezRun/'
+```
+
+Error
+```
+22-05-04 10:48 masaomi@fgcz-c-047:/srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426
+$ R CMD INSTALL /srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426/ezRun/
+* installing to library ‘/export/kenlab/kenlab/masa/2022/UZH/Masa/test_sushi_20220426/RLIBS’
+* installing *source* package ‘ezRun’ ...
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+Error : package or namespace load failed for ‘celda’ in dyn.load(file, DLLpath = DLLpath, ...):
+ unable to load shared object '/misc/ngseq10/packages/Dev/R/4.1.2/lib/R/library/magick/libs/magick.so':
+  libMagick++-6.Q16.so.8: cannot open shared object file: No such file or directory
+Error: unable to load R code in package ‘ezRun’
+Execution halted
+ERROR: lazy loading failed for package ‘ezRun’
+* removing ‘/export/kenlab/kenlab/masa/2022/UZH/Masa/test_sushi_20220426/RLIBS/ezRun’
+
+```
+* fgcz-c-047 needs libMagic
+
+Next
+* test run VcfStatsApp
+* ezRun R code structure
+
+After you update ezRun code
+```
+22-05-04 11:26 masaomi@fgcz-c-047:/srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426/ezRun
+$ git add inst/templates/VcfStats.Rmd
+22-05-04 11:26 masaomi@fgcz-c-047:/srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426/ezRun
+$ git commit -m "Test VcfStats.Rmd"
+[master 99021ed2] Test VcfStats.Rmd
+ 1 file changed, 2 insertions(+)
+22-05-04 11:27 masaomi@fgcz-c-047:/srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426/ezRun
+$ git push
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 32 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 463 bytes | 463.00 KiB/s, done.
+Total 5 (delta 3), reused 0 (delta 0)
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To github.com:flo-v/ezRun.git
+   7d9799aa..99021ed2  master -> master
+
+22-05-04 11:28 masaomi@fgcz-c-047:/srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426
+$ ezins
+
+22-05-04 11:29 masaomi@fgcz-c-047:/srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426
+$ bundle exec rails s -e production -b fgcz-c-047.uzh.ch -p 4001
+
+```
+* Then, test job submission
+
+Goal
+* Various types of phylogenetic trees, clusterings using a vcf file
+* SNPRelate SUSHI App by plotting phylogenetics tree
+
+Masa, ToDo
+1. Install some lack libraries for installing ezRun in fgcz-c-047
+
+Florian, ToDo
+1. SUSHI instance run test again with new files
+2. test run MinimalApp
+3. test run VcfStatsApp
+4. test updating something in VcfStatsApp
+5. test SNPRelate tutorial and make a PCA plot in RStudio
+6. try SUSHI application for PCA plot as an example
+7. and meeting again
 
