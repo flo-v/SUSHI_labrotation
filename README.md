@@ -285,3 +285,6 @@ Florian, ToDo
 6. try SUSHI application for PCA plot as an example
 7. and meeting again
 
+Note
+* Masa will be teaching on 18-20, Bio334, practical bioinformatics, R, Python coding
+
