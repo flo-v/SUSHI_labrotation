@@ -99,7 +99,8 @@ $ source /usr/local/ngseq/etc/lmod_profile
 $ module load Dev/Ruby/3.0.3
 $ bundle exec rails s -e production -b fgcz-c-047.uzh.ch -p 5000
 ```
-
+error: uninitialized constant ApplicationController::MinimalApp_flo
+MinimalApp_flo cannot be imported
 
 ### Questions/problems:
 * ~~what is the adress for the ssh connection to the server again? maybe I got somthing wrong?~~
