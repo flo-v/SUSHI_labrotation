@@ -5,6 +5,8 @@ Table of Contents
 
  * [26 Apr\. 2022, Kick\-off meeting, Florian \+ Masa](#26-apr-2022-kick-off-meeting-florian--masa)
  * [27-29 Apr\. 2022, get sushi test instance working for Flo](#27-29-apr-2022-get-sushi-test-instance-working-for-flo)
+ * [04 May\. 2022, ezRun explanation meeting, Florian \+ Masa](#04-may-2022-ezRun-meeting-florian--masa)
+
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)
 
@@ -105,3 +107,6 @@ $ bundle exec rails s -e production -b fgcz-c-047.uzh.ch -p 5000
 * ~~when starting the VPN access to http://fgcz-c-047.uzh.ch:5000 doesn't work~~
 * ~~after having done everything in the log above and started VPN to access http://fgcz-c-047.uzh.ch:5000 : page loads but login to BFabric account doesn't work. Error message: "We're sorry, but something went wrong."~~
 * Newly created sushi app is not listed under stats category when chosing apps for analysis on http://fgcz-c-047.uzh.ch:5000
+
+## 04 May 2022, ezRun explanation meeting, Florian \+ Masa
+
