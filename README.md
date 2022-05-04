@@ -83,13 +83,25 @@ Setup test dataset in p1535
 6. Select FastQCApp, and submit
 7. Wait for a minute, and check the result (by clicking on DataSets once again)
 
-worked all till here
+Make new sushi app
+Log
+```
+$ ps aux |grep rails
+$ fvetsc  16798 20.6  0.0 321176 125024 pts/58  Sl+  14:49   0:04 /misc/ngseq10/packages/Dev/Ruby/3.0.3/bin/ruby script/rails s -e production -b fgcz-c-047.uzh.ch -p 5000
+$ kill -9 16798
+$ exit
+local: ssh fvetsc@fgcz-c-047.uzh.ch
+$ vim /srv/kenlab/flo/flo_sushi_20220426/master/lib/MinimalApp.rb # created a minimal app
+$ cd /srv/kenlab/flo/flo_sushi_20220426/master/
+$ source /usr/local/ngseq/etc/lmod_profile
+$ module load Dev/Ruby/3.0.3
+$ bundle exec rails s -e production -b fgcz-c-047.uzh.ch -p 5000
+```
 
-
-So I killed the process and logged off
 
 ### Questions/problems:
 * ~~what is the adress for the ssh connection to the server again? maybe I got somthing wrong?~~
 
 * ~~when starting the VPN access to http://fgcz-c-047.uzh.ch:5000 doesn't work~~
 * ~~after having done everything in the log above and started VPN to access http://fgcz-c-047.uzh.ch:5000 : page loads but login to BFabric account doesn't work. Error message: "We're sorry, but something went wrong."~~
+* Newly created sushi app is not listed under stats category when chosing apps for analysis on http://fgcz-c-047.uzh.ch:5000
