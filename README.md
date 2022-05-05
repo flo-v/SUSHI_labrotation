@@ -345,4 +345,6 @@ Note
 * SUSHI instance should run on *fgcz-c-047*, but ezRun installation should be done on *fgcz-genomics.uzh.ch* because some libraries are missing on *fgcz-c-047* for the ezRun installation, in other words, the command, *R CMD INSTALL xxx*, should run on *fgcz-genomics.uzh.ch* (it is shown as **fgcz-h-176** in command prompt after you login fgcz-genomics.uzh.ch, see the command log above).
 * You can do *git clone* and edit your ezRun code on either *fgcz-c-047.uzh.ch* or *fgcz-genomics.uzh.ch*.
 
+Sorry for complication. If you have a quesiton, please feel free to ask me.
+
 
