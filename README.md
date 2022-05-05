@@ -3,10 +3,10 @@
 Table of Contents
 =================
 
- * [26 Apr\. 2022, Kick\-off meeting, Florian \+ Masa](#26-apr-2022-kick-off-meeting-florian--masa)
- * [27-29 Apr\. 2022, get sushi test instance working for Flo](#27-29-apr-2022-get-sushi-test-instance-working-for-flo)
- * [04 May\. 2022, ezRun explanation meeting, Florian \+ Masa](#04-may-2022-ezrun-explanation-meeting-florian--masa)
-
+* [26 Apr\. 2022, Kick\-off meeting, Florian \+ Masa](#26-apr-2022-kick-off-meeting-florian--masa)
+* [27\-29 Apr\. 2022, get sushi test instance working for Flo](#27-29-apr-2022-get-sushi-test-instance-working-for-flo)
+* [04 May 2022, ezRun explanation meeting, Florian \+ Masa](#04-may-2022-ezrun-explanation-meeting-florian--masa)
+* [05 May 2022, ezRun install test, Masa](#05-may-2022-ezrun-install-test-masa)
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)
 
