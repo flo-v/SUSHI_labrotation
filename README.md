@@ -322,7 +322,7 @@ $ R CMD INSTALL /srv/GT/analysis/masaomi/2022/FGCZ/test_install_ezrun_on_c47_202
 ```
 
 To Florian
-* Pleaase copy @fgcz-c-047:/srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426/flo_sushi_20220505.tgz again to your working directory
+* Pleaase copy **@fgcz-c-047:/srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426/flo_sushi_20220505.tgz** again to your working directory
 * I modified the ezRun installed path as follows
 
 ```
@@ -331,18 +331,18 @@ $ grep 'flo' lib/global_variables.rb
     command<<  "library(ezRun, lib.loc='/srv/GT/analysis/florian/R_LIBS/')\n"
 ```
 
-* Please use /srv/GT/analysis/florian/R_LIBS/ for installing ezRun, which means you should write the following line in your ~/.Rprofile
+* Please use **/srv/GT/analysis/florian/R_LIBS/** for installing ezRun, which means you should write the following line in your ~/.Rprofile
 
 ~/.Rrofile
 ```
 .libPaths("/srv/GT/analysis/florian/R_LIBS")
 ```
 
-* Please use fgcz-genomics.uzh.ch when you install ezRun
+* Please use *fgcz-genomics.uzh.ch* when you install ezRun
 
 Note
-* /srv/kenlab directory is mounted (accessible) only on fgcz-c-047, but /srv/GT/analysis/florian/R_LIBS/ is shared by all cluster nodes and a SUSHI job can access the installed ezRun library
-* SUSHI instance should run on fgcz-c-047, but ezRun installation should be done on fgcz-genomics.uzh.ch because some libraries are missing on fgcz-c-047 for the ezRun installation, which means the command, "R CMD INSTALL xxx", should run on fgcz-genomics.uzh.ch (it is shown as **fgcz-h-176** in command prompt after you login fgcz-genomics.uzh.ch, see the command log above)
-
+* /srv/kenlab directory is mounted (accessible) only on *fgcz-c-047*, but */srv/GT/analysis/florian/R_LIBS/* is shared by all cluster nodes and a SUSHI job can access the installed ezRun library
+* SUSHI instance should run on *fgcz-c-047*, but ezRun installation should be done on *fgcz-genomics.uzh.ch* because some libraries are missing on *fgcz-c-047* for the ezRun installation, in other words, the command, *R CMD INSTALL xxx*, should run on *fgcz-genomics.uzh.ch* (it is shown as **fgcz-h-176** in command prompt after you login fgcz-genomics.uzh.ch, see the command log above).
+* You can do *git clone* and edit your ezRun code on either fgcz-c-047.uzh.ch or fgcz-genomics.uzh.ch.
 
 
