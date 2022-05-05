@@ -338,11 +338,11 @@ $ grep 'flo' lib/global_variables.rb
 .libPaths("/srv/GT/analysis/florian/R_LIBS")
 ```
 
-* Please use *fgcz-genomics.uzh.ch* when you install ezRun
+* Please use **fgcz-genomics.uzh.ch**, not *fgcz-c-047.uzh.ch*, when you install ezRun
 
 Note
-* /srv/kenlab directory is mounted (accessible) only on *fgcz-c-047*, but */srv/GT/analysis/florian/R_LIBS/* is shared by all cluster nodes and a SUSHI job can access the installed ezRun library
+* */srv/kenlab* directory is mounted (accessible) only on *fgcz-c-047*, but */srv/GT/analysis/florian/R_LIBS/* is shared by all cluster nodes and a SUSHI job can access the installed ezRun library
 * SUSHI instance should run on *fgcz-c-047*, but ezRun installation should be done on *fgcz-genomics.uzh.ch* because some libraries are missing on *fgcz-c-047* for the ezRun installation, in other words, the command, *R CMD INSTALL xxx*, should run on *fgcz-genomics.uzh.ch* (it is shown as **fgcz-h-176** in command prompt after you login fgcz-genomics.uzh.ch, see the command log above).
-* You can do *git clone* and edit your ezRun code on either fgcz-c-047.uzh.ch or fgcz-genomics.uzh.ch.
+* You can do *git clone* and edit your ezRun code on either *fgcz-c-047.uzh.ch* or *fgcz-genomics.uzh.ch*.
 
 
