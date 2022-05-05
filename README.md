@@ -288,3 +288,61 @@ Florian, ToDo
 Note
 * Masa will be teaching on 18-20, Bio334, practical bioinformatics, R, Python coding
 
+## 05 May 2022, ezRun install test, Masa
+
+Log
+```
+# 22-05-05 13:27 masaomi@fgcz-h-176:/srv/GT/analysis/masaomi/2022/FGCZ/test_install_ezrun_on_c47_20220505
+$ git clone git@github.com:flo-v/ezRun.git ezRun_flo
+$ mkdir R_LIBS
+$ vim ~/.Rprofile
+# .libPaths("/srv/GT/analysis/masaomi/2022/FGCZ/test_install_ezrun_on_c47_20220505/R_LIBS")
+
+$ R -q -e ".libPaths()"
+# > .libPaths()
+# [1] "/misc/GT/analysis/masaomi/2022/FGCZ/test_install_ezrun_on_c47_20220505/R_LIBS"
+# [2] "/misc/ngseq10/packages/Dev/R/4.1.2/lib/R/library"
+
+$ R CMD INSTALL /srv/GT/analysis/masaomi/2022/FGCZ/test_install_ezrun_on_c47_20220505/ezRun_flo/
+# * installing to library ‘/misc/GT/analysis/masaomi/2022/FGCZ/test_install_ezrun_on_c47_20220505/R_LIBS’
+# * installing *source* package ‘ezRun’ ...
+# ** using staged installation
+# ** R
+# ** inst
+# ** byte-compile and prepare package for lazy loading
+# loading EZ_GLOBAL_VARIABLES  from: /misc/GT/analysis/masaomi/2022/FGCZ/test_install_ezrun_on_c47_20220505/R_LIBS/00LOCK-ezRun_flo/00new/ezRun/extdata/EZ_GLOBAL_VARIABLES.txt
+# ** help
+# *** installing help indices
+# ** building package indices
+# ** installing vignettes
+# ** testing if installed package can be loaded from temporary location
+# ** testing if installed package can be loaded from final location
+# ** testing if installed package keeps a record of temporary installation path
+# * DONE (ezRun)
+```
+
+To Florian
+* Pleaase copy @fgcz-c-047:/srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426/flo_sushi_20220505.tgz again to your working directory
+* I modified the ezRun installed path as follows
+
+```
+22-05-05 13:53 masaomi@fgcz-c-047:/srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426/flo_sushi_20220505/master
+$ grep 'flo' lib/global_variables.rb
+    command<<  "library(ezRun, lib.loc='/srv/GT/analysis/florian/R_LIBS/')\n"
+```
+
+* Please use /srv/GT/analysis/florian/R_LIBS/ for installing ezRun, which means you should write the following line in your ~/.Rprofile
+
+~/.Rrofile
+```
+.libPaths("/srv/GT/analysis/florian/R_LIBS")
+```
+
+* Please use fgcz-genomics.uzh.ch when you install ezRun
+
+Note
+* /srv/kenlab directory is mounted (accessible) only on fgcz-c-047, but /srv/GT/analysis/florian/R_LIBS/ is shared by all cluster nodes and a SUSHI job can access the installed ezRun library
+* SUSHI instance should run on fgcz-c-047, but ezRun installation should be done on fgcz-genomics.uzh.ch because some libraries are missing on fgcz-c-047 for the ezRun installation, which means the command, "R CMD INSTALL xxx", should run on fgcz-genomics.uzh.ch (it is shown as **fgcz-h-176** in command prompt after you login fgcz-genomics.uzh.ch, see the command log above)
+
+
+
