@@ -7,7 +7,7 @@ Table of Contents
 * [27\-29 Apr\. 2022, get sushi test instance working for Flo](#27-29-apr-2022-get-sushi-test-instance-working-for-flo)
 * [04 May 2022, ezRun explanation meeting, Florian \+ Masa](#04-may-2022-ezrun-explanation-meeting-florian--masa)
 * [05 May 2022, ezRun install test, Masa](#05-may-2022-ezrun-install-test-masa)
-
+* [06-current May 2022, ezrun install test Flo](#06-current-may-2022-ezrun-install-test-flo)
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)
 
 ## 26 Apr. 2022, Kick-off meeting, Florian + Masa
@@ -75,15 +75,18 @@ $ source /usr/local/ngseq/etc/lmod_profile
 $ module load Dev/Ruby/3.0.3
 $ bundle exec rails s -e production -b fgcz-c-047.uzh.ch -p 5000
 ```
-Then started VPN and accessed http://fgcz-c-047.uzh.ch:5000: loging in with username 
-Setup test dataset in p1535
+### FGCZ website steps
+Start VPN and accessed http://fgcz-c-047.uzh.ch:5000: (5000 or whatever number defined in rails execution)   
+Logging in with username  
+Run analysis on data:
 1. Select project 1535
-2. gStore-ventricles_100k-test_masa_dataset.tsv (download)
-3. Import-Browse-test_masa_dataset.tsv-DataSet Name:xxxx-load dataset
+2. gStore-ventricles_100k-test_masa_dataset.tsv (or other data; download, if not already done)
+3. Import-Browse-test_masa_dataset.tsv-DataSet (or use other data), define Name:xxxx-load dataset
 4. Confirm by clickin DataSet in menu
 5. Click test_dataset with given name xxxx (Applications - refresh if you cannot see the application buttons)
-6. Select FastQCApp, and submit
+6. Select whatever application you want (here FastQCApp), and submit
 7. Wait for a minute, and check the result (by clicking on DataSets once again)
+
 
 Make new sushi app
 Log
@@ -346,5 +349,29 @@ Note
 * You can do *git clone* and edit your ezRun code on either *fgcz-c-047.uzh.ch* or *fgcz-genomics.uzh.ch*.
 
 Sorry for complication. If you have a quesiton, please feel free to ask me.
+
+
+## 06-current May 2022, ezRun install test, Flo
+
+Log
+```
+22-05-04 10:10 masaomi@fgcz-c-047:/srv/kenlab/flo
+$ rm -rf flo_sushi_20220*
+$ cp -r /srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426/flo_sushi_20220505.tgz .
+$ tar zxvf flo_sushi_20220505.tgz
+$ cd flo_sushi_20220505/master/
+$ source /usr/local/ngseq/etc/lmod_profile
+$ module load Dev/Ruby/3.0.3
+$ bundle exec rails s -e production -b fgcz-c-047.uzh.ch -p 5000
+```
+Testing FastQCApp:
+[FGCZ website steps](#fgcz-website-steps)
+
+Making & testing MinimalApp:
+
+
+
+
+
 
 
