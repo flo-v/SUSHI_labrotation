@@ -7,7 +7,7 @@ Table of Contents
 * [27\-29 Apr\. 2022, get sushi test instance working for Flo](#27-29-apr-2022-get-sushi-test-instance-working-for-flo)
 * [04 May 2022, ezRun explanation meeting, Florian \+ Masa](#04-may-2022-ezrun-explanation-meeting-florian--masa)
 * [05 May 2022, ezRun install test, Masa](#05-may-2022-ezrun-install-test-masa)
-* [06-current May 2022, ezrun install test Flo](#06-current-may-2022-ezrun-install-test-flo)  
+* [06-current May 2022, testing FastQC & Minimal app and ezrun install test Flo](#06-current-may-2022testing-fastqc--minimal-app-and-ezrun-install-test-flo)  
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)
 
