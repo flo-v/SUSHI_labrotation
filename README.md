@@ -352,7 +352,7 @@ Note
 Sorry for complication. If you have a quesiton, please feel free to ask me.
 
 
-## 06-current May 2022, ezRun install test, Flo
+## 06-current May 2022,testing FastQC & Minimal App and ezRun install test, Flo
 
 Log
 ```
@@ -369,7 +369,7 @@ Testing FastQCApp:
 [FGCZ website steps](#fgcz-website-steps)
 
 ### Problem:
-*After submitting the FastQC analysis the job doesn't finish (takes more than 1 hour)
+* After submitting the FastQC analysis the job doesn't finish (takes more than 1 hour)
 
 Making & testing MinimalApp:
 
