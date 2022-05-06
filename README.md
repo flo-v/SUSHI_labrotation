@@ -376,9 +376,21 @@ Testing FastQCApp:
 
 Making & testing MinimalApp:
 
+Comments by Masa
+* Please install ezRun package first (to /srv/GT/analysis/florian/R_LIBS)
+* In order to install ezRun package you need 1) to set R LIBS path to your .Rprofile, and 2) to do *git clone* your ezRun source somewhere
 
+For example, login fgcz-genomics.uzh.ch
+```
+$ vim ~/Rprofile
+.libPaths("/srv/GT/analysis/florian/R_LIBS")
+$ cd /srv/GT/analysis/florian/
+$ git clone git@github.com:flo-v/ezRun.git
+$ R CMD INSTALL /srv/GT/analysis/florian/ezRun
+$ ls /srv/GT/analysis/florian/R_LIBS/
+(please make sure if ezRun is installed in the directory, /srv/GT/analysis/florian/R_LIBS/)
+```
 
-
-
+* Then you can test SUSHI (Rails) instance and FastQC job submission
 
 
