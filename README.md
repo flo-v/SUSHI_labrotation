@@ -370,7 +370,7 @@ Testing FastQCApp:
 
 ### Problem:
 * After submitting the FastQC analysis the job doesn't finish (takes more than 1 hour)
-* MinimalApp.rb is not listed under stats category when chosing apps for analysis on http://fgcz-c-047.uzh.ch:5000 (I clicked refresh as well), even though I can see the app in /srv/kenlab/flo/flo_sushi_20220505/master/lib
+* MinimalApp.rb is not listed under stats category when chosing apps for analysis on http://fgcz-c-047.uzh.ch:5000 (I clicked refresh as well), even though I can see the app in /srv/kenlab/flo/flo_sushi_20220505/master/lib (testdata used: ventricles_100k)
 
 
 
