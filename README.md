@@ -7,7 +7,8 @@ Table of Contents
 * [27\-29 Apr\. 2022, get sushi test instance working for Flo](#27-29-apr-2022-get-sushi-test-instance-working-for-flo)
 * [04 May 2022, ezRun explanation meeting, Florian \+ Masa](#04-may-2022-ezrun-explanation-meeting-florian--masa)
 * [05 May 2022, ezRun install test, Masa](#05-may-2022-ezrun-install-test-masa)
-* [06-current May 2022, ezrun install test Flo](#06-current-may-2022-ezrun-install-test-flo)
+* [06-current May 2022, ezrun install test Flo](#06-current-may-2022-ezrun-install-test-flo)  
+
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)
 
 ## 26 Apr. 2022, Kick-off meeting, Florian + Masa
@@ -85,7 +86,7 @@ Run analysis on data:
 4. Confirm by clickin DataSet in menu
 5. Click test_dataset with given name xxxx (Applications - refresh if you cannot see the application buttons)
 6. Select whatever application you want (here FastQCApp), and submit
-7. Wait for a minute, and check the result (by clicking on DataSets once again)
+7. Wait for some minutes, and check the result (by clicking on DataSets once again)
 
 
 Make new sushi app
@@ -366,6 +367,9 @@ $ bundle exec rails s -e production -b fgcz-c-047.uzh.ch -p 5000
 ```
 Testing FastQCApp:
 [FGCZ website steps](#fgcz-website-steps)
+
+### Problem:
+*After submitting the FastQC analysis the job doesn't finish (takes more than 1 hour)
 
 Making & testing MinimalApp:
 
