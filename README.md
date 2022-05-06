@@ -381,7 +381,7 @@ Making & testing MinimalApp:
 
 For example, login fgcz-genomics.uzh.ch
 ```
-$ vim ~/Rprofile
+$ vim ~/.Rprofile
 .libPaths("/srv/GT/analysis/florian/R_LIBS")
 $ cd /srv/GT/analysis/florian/
 $ git clone git@github.com:flo-v/ezRun.git
