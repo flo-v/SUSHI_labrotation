@@ -357,7 +357,7 @@ Sorry for complication. If you have a quesiton, please feel free to ask me.
 
 Log
 ```
-22-05-04 10:10 masaomi@fgcz-c-047:/srv/kenlab/flo
+22-05-04 10:10 fvetsc@fgcz-c-047:/srv/kenlab/flo
 $ rm -rf flo_sushi_20220*
 $ cp -r /srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426/flo_sushi_20220505.tgz .
 $ tar zxvf flo_sushi_20220505.tgz
@@ -394,7 +394,7 @@ $ ls /srv/GT/analysis/florian/R_LIBS/
 * Then you can test SUSHI (Rails) instance and FastQC job submission
 
 
-## 10 May, 2022, updated SUSHI configuration
+## 9 May, 2022, updated SUSHI configuration, Masa
 
 Dear Florian, 
 * please copy the following file again to your working directory, and test to run SUSHI again.
@@ -406,4 +406,46 @@ Note
 * I changed some configuration to avoid the permission error
 * Now the result file will be copied to */srv/GT/analysis/sushi_course/public/gstore/projects/p1535/*
     * Previously, it was */srv/gstore/projects/p1535* (this was allowed only for Employees)
+
+
+## 9 May, 2022, test updated SUSHI, Flo
+
+Log
+```
+ssh fvetsc@fgcz-c-047.uzh.ch # from local command prompt (doesn't work when connected to VPN)
+fvetsc@fgcz-c-047: cd /srv/kenlab/flo
+$ rm -rf flo_sushi_20220*
+$ cp -r /srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426/flo_sushi_20220510.tgz .
+$ tar zxvf flo_sushi_20220510.tgz
+$ cd flo_sushi_20220510/master/
+$ source /usr/local/ngseq/etc/lmod_profile
+$ module load Dev/Ruby/3.0.3
+$ bundle exec rails s -e production -b fgcz-c-047.uzh.ch -p 5000
+```
+Testing FastQCApp:
+[FGCZ website steps](#fgcz-website-steps)
+
+Analysis is listed under Jobs on fgcz-website but fails (as it should) as ezRun isn't installed yet.  
+
+Log
+```
+fvetsc@fgcz-c-047: ps aux |grep rails
+$ kill -9 "number" # number that task is listed as
+exit
+ssh fvetsc@fgcz-genomics.uzh.ch
+$ vim ~/.Rprofile
+.libPaths("/srv/GT/analysis/florian/R_LIBS")
+$ cd /srv/GT/analysis/florian/
+$ git clone git@github.com:flo-v/ezRun.git
+```
+Error:
+```
+Cloning into 'ezRun'...
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+```
+
 
