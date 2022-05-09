@@ -8,6 +8,7 @@ Table of Contents
 * [04 May 2022, ezRun explanation meeting, Florian \+ Masa](#04-may-2022-ezrun-explanation-meeting-florian--masa)
 * [05 May 2022, ezRun install test, Masa](#05-may-2022-ezrun-install-test-masa)
 * [06-current May 2022, testing FastQC & Minimal app and ezrun install test Flo](#06-current-may-2022testing-fastqc--minimal-app-and-ezrun-install-test-flo)  
+* [10 May, 2022, updated SUSHI configuration](#10-may-2022-updated-sushi-configuration)
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)
 
@@ -392,4 +393,17 @@ $ ls /srv/GT/analysis/florian/R_LIBS/
 
 * Then you can test SUSHI (Rails) instance and FastQC job submission
 
+
+## 10 May, 2022, updated SUSHI configuration
+
+Dear Florian, 
+* please copy the following file again to your working directory, and test to run SUSHI again.
+    * */srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426/flo_sushi_20220510.tgz*
+* And please install ezRun manually to */srv/GT/analysis/florian/R_LIBS* by referring to my previous comments.
+    * You need to install *ezRun* manually to test your new SUSHI app, anyway.
+
+Note
+* I changed some configuration to avoid the permission error
+* Now the result file will be copied to */srv/GT/analysis/sushi_course/public/gstore/projects/p1535/*
+    * Previously, it was */srv/gstore/projects/p1535* (this was allowed only for Employees)
 
