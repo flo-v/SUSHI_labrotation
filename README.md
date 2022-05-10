@@ -412,7 +412,7 @@ Note
 
 Log
 ```
-ssh fvetsc@fgcz-c-047.uzh.ch # from local command prompt (doesn't work when connected to VPN)
+ssh fvetsc@fgcz-c-047.uzh.ch # from local command prompt
 fvetsc@fgcz-c-047: cd /srv/kenlab/flo
 $ rm -rf flo_sushi_20220*
 $ cp -r /srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426/flo_sushi_20220510.tgz .
