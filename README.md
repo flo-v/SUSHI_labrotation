@@ -7,9 +7,9 @@ Table of Contents
 * [27\-29 Apr\. 2022, get sushi test instance working for Flo](#27-29-apr-2022-get-sushi-test-instance-working-for-flo)
 * [04 May 2022, ezRun explanation meeting, Florian \+ Masa](#04-may-2022-ezrun-explanation-meeting-florian--masa)
 * [05 May 2022, ezRun install test, Masa](#05-may-2022-ezrun-install-test-masa)
-* [06-current May 2022, testing FastQC & Minimal app and ezrun install test Flo](#06-current-may-2022testing-fastqc--minimal-app-and-ezrun-install-test-flo)  
+* [06-08 May 2022, testing FastQC & Minimal app and ezrun install test Flo](#06-08-may-2022testing-fastqc--minimal-app-and-ezrun-install-test-flo)  
 * [09 May, 2022, updated SUSHI configuration](#09-may-2022-updated-sushi-configuration-masa)
-* [09 May, 2022, test updated SUSHI, flo](#09-may-2022-test-updated-sushi-flo)
+* [09-10 May, 2022, test updated SUSHI, flo](#09-10-may-2022-test-updated-sushi-flo)
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)
 
@@ -354,7 +354,7 @@ Note
 Sorry for complication. If you have a quesiton, please feel free to ask me.
 
 
-## 06-current May 2022,testing FastQC & Minimal App and ezRun install test, Flo
+## 06-08 May 2022,testing FastQC & Minimal App and ezRun install test, Flo
 
 Log
 ```
@@ -409,7 +409,7 @@ Note
     * Previously, it was */srv/gstore/projects/p1535* (this was allowed only for Employees)
 
 
-## 09 May, 2022, test updated SUSHI, Flo
+## 09-10 May, 2022, test updated SUSHI, Flo
 
 Log
 ```
@@ -501,7 +501,7 @@ $ vim Fastqc_1App.rb
 $ git add Fastqc_1App.rb
 $ git commit -m "new app Fastqc_1App.rb" 
 $ git push
-
+```
 it worked!
 
 
