@@ -123,7 +123,7 @@ $ git add Fastqc_1App.rb
 $ git commit -m "new app Fastqc_1App.rb" 
 $ git push
 ```
-
+Test if app works by running [sushi](#executing-sushi-steps) with [fgcz](#fgcz-website-steps) steps
 
 
 
