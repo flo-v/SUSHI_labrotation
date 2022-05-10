@@ -78,9 +78,13 @@ $ cd /srv/kenlab/flo
 
 $ cp -r /srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426/flo_sushi_20220510.tgz .
 $ tar zxvf flo_sushi_20220510.tgz
+```
+#### Executing sushi steps
+```
 $ cd flo_sushi_20220510/master/
 $ source /usr/local/ngseq/etc/lmod_profile
 $ module load Dev/Ruby/3.0.3
+$ umask 000 # to set the default directory permission to 777
 $ bundle exec rails s -e production -b fgcz-c-047.uzh.ch -p 5000
 ```
 To check the rails execution:
@@ -92,11 +96,11 @@ $ kill -9 16798 # to stop process
 
 Then do: 
 
-### FGCZ website steps
+#### FGCZ website steps
 Start VPN and accessed http://fgcz-c-047.uzh.ch:5000: (5000 or whatever number defined in rails execution)   
 Logging in with username  
 Run analysis on data:
-1. Select project 1535
+1. Select project 1535 ((if data-to-be-analyzed is already loaded in sushi skip directly to step 4)
 2. gStore-ventricles_100k-test_masa_dataset.tsv (or other data; download, if not already done)
 3. Import-Browse-test_masa_dataset.tsv-DataSet (or use other data), define Name:xxxx-load dataset
 4. Confirm by clickin DataSet in menu
@@ -106,3 +110,43 @@ Run analysis on data:
 
 
 ## Creating new apps
+
+Creating identical FastqcApp under new name:
+```
+fvetsc@fgcz-c-047:/srv/kenlab/flo/flo_sushi_20220510/master/lib
+$ cp FastqcApp.rb Fastqc_1App.rb
+$ vim Fastqc_1App.rb
+# setting colorscheme to more readable for me by typing <Esc> and <:colorscheme industry>
+# changing: class name to "Fastqc_1App", @name to "Fastqc_1", usecase = Fastqc_1App.new
+# to close and save type <Esc> and <:x>
+$ git add Fastqc_1App.rb
+$ git commit -m "new app Fastqc_1App.rb" 
+$ git push
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
