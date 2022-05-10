@@ -502,11 +502,11 @@ $ git add Fastqc_1App.rb
 $ git commit -m "new app Fastqc_1App.rb" 
 $ git push
 ```
-it worked!
+it worked! but same problems apply as above when original FastqcApp was run
 
 
 ### Questions:
-* Masa made changes to flo_sushi like changing paths etc to avoid permission problems. Is this done in the sushi instance I forked on Github?
+* ~~Masa made changes to flo_sushi like changing paths etc to avoid permission problems. Is this done in the sushi instance I forked on Github?~~
 
 
 
