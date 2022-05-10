@@ -8,7 +8,8 @@ Table of Contents
 * [04 May 2022, ezRun explanation meeting, Florian \+ Masa](#04-may-2022-ezrun-explanation-meeting-florian--masa)
 * [05 May 2022, ezRun install test, Masa](#05-may-2022-ezrun-install-test-masa)
 * [06-current May 2022, testing FastQC & Minimal app and ezrun install test Flo](#06-current-may-2022testing-fastqc--minimal-app-and-ezrun-install-test-flo)  
-* [10 May, 2022, updated SUSHI configuration](#10-may-2022-updated-sushi-configuration)
+* [09 May, 2022, updated SUSHI configuration](#09-may-2022-updated-sushi-configuration-masa)
+* [09 May, 2022, test updated SUSHI, flo](#09-may-2022-test-updated-sushi-flo)
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)
 
@@ -394,7 +395,7 @@ $ ls /srv/GT/analysis/florian/R_LIBS/
 * Then you can test SUSHI (Rails) instance and FastQC job submission
 
 
-## 9 May, 2022, updated SUSHI configuration, Masa
+## 09 May, 2022, updated SUSHI configuration, Masa
 
 Dear Florian, 
 * please copy the following file again to your working directory, and test to run SUSHI again.
@@ -408,7 +409,7 @@ Note
     * Previously, it was */srv/gstore/projects/p1535* (this was allowed only for Employees)
 
 
-## 9 May, 2022, test updated SUSHI, Flo
+## 09 May, 2022, test updated SUSHI, Flo
 
 Log
 ```
@@ -447,7 +448,7 @@ fatal: Could not read from remote repository.
 Please make sure you have the correct access rights
 and the repository exists.
 ```
-ssh key needed (https://linuxize.com/post/how-to-copy-cut-paste-in-vim/):
+ssh key needed (https://www.linuxfordevices.com/tutorials/linux/connect-to-github-with-ssh):
 ```
 $ ls -al ~/.ssh # check if key is existing, creating a new one anyway
 $ ssh-keygen -t ed25519 -C "flo-v@Github"
