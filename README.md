@@ -476,3 +476,45 @@ cp: das Verzeichnis '/srv/GT/analysis/course_sushi/public/gstore/projects/p1535/
 ```
 Therefore I assume there is still a permission problem.
 
+Solution:
+```
+ssh fvetsc@fgcz-c-047.uzh.ch
+cd /srv/kenlab/flo/flo_sushi_20220510/master
+source /usr/local/ngseq/etc/lmod_profile
+module load Dev/Ruby/3.0.3
+umask 000 # to set the default directory permission to 777
+bundle exec rails s -e production -b fgcz-c-047.uzh.ch -p 5000
+```
+It worked!   
+Many warnings about the apps are printed however: (eg. warning: already initialized constant Version, warning: previous definition of Version was here)  
+and the html files under Job-DataSet on sushi webpage get the error: The requested URL was not found on this server.
+
+
+Creating identical FastqcApp under new name:
+```
+fvetsc@fgcz-c-047:/srv/kenlab/flo/flo_sushi_20220510/master/lib
+$ cp FastqcApp.rb Fastqc_1App.rb
+$ vim Fastqc_1App.rb
+# setting colorscheme to more readable for me by typing <Esc> and <:colorscheme industry>
+# changing: class name to "Fastqc_1App", @name to "Fastqc_1", usecase = Fastqc_1App.new
+# to close and save type <Esc> and <:x>
+$ git add Fastqc_1App.rb
+$ git commit -m "new app Fastqc_1App.rb" 
+$ git push
+
+it worked!
+
+
+### Questions:
+* Masa made changes to flo_sushi like changing paths etc to avoid permission problems. Is this done in the sushi instance I forked on Github?
+
+
+
+
+
+
+
+
+
+
+
