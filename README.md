@@ -447,5 +447,31 @@ fatal: Could not read from remote repository.
 Please make sure you have the correct access rights
 and the repository exists.
 ```
+ssh key needed (https://linuxize.com/post/how-to-copy-cut-paste-in-vim/):
+```
+$ ls -al ~/.ssh # check if key is existing, creating a new one anyway
+$ ssh-keygen -t ed25519 -C "flo-v@Github"
+# enter to save at default location
+$ eval "$(ssh-agent -s)"
+$ ssh-add ~/.ssh/id_ed25519
+$ cat ~/.ssh/id_ed25519.pub # copy the key from output
+# adding key on Github.com
+$ git clone git@github.com:flo-v/ezRun.git
+$ R CMD INSTALL /srv/GT/analysis/florian/ezRun
+$ ls /srv/GT/analysis/florian/R_LIBS/
+# eyRun is listed under libraries
+$ exit
 
+ssh fvetsc@fgcz-c-047.uzh.ch
+$ cd /srv/kenlab/flo/flo_sushi_20220510/master
+$ source /usr/local/ngseq/etc/lmod_profile
+$ module load Dev/Ruby/3.0.3
+$ bundle exec rails s -e production -b fgcz-c-047.uzh.ch -p 5000
+```
+job still fails: the log of the job on the sushi webpage states:
+
+```
+cp: das Verzeichnis '/srv/GT/analysis/course_sushi/public/gstore/projects/p1535/Fastqc_2022-05-10--11-45-45/FastQC_Result' kann nicht angelegt werden: Keine Berechtigung
+```
+Therefore I assume there is still a permission problem.
 
