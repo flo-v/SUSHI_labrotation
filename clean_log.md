@@ -64,6 +64,7 @@ $ grep 'flo' lib/global_variables.rb
 * Now the result file will be copied to */srv/GT/analysis/sushi_course/public/gstore/projects/p1535/*
     * Previously, it was */srv/gstore/projects/p1535* (this was allowed only for Employees)
 
+* changed the settings to get proper html outputs
 
 
 ### Running sushi on kenlab server
@@ -74,15 +75,15 @@ $ mkdir /srv/kenlab/flo
 $ /srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426
 $ cd /srv/kenlab/flo
 # clone sushi fork into directory, for this we need to generate a ssh key again
-# in my case Masa provided flo_sushi_20220510.tgz already 
+# in my case Masa provided flo_sushi_20220511.tgz already 
 # which is a clone of my sushi fork with added files for managing access permissions (files listed in .gitignore in order not to push them on the sushi fork)
 # therefore I only copy the file to my directory
-$ cp -r /srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426/flo_sushi_20220510.tgz .
-$ tar zxvf flo_sushi_20220510.tgz
+$ cp -r /srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426/flo_sushi_20220511.tgz .
+$ tar zxvf flo_sushi_20220511.tgz
 ```
 #### Executing sushi steps
 ```
-$ cd flo_sushi_20220510/master/
+$ cd flo_sushi_20220511/master/
 $ source /usr/local/ngseq/etc/lmod_profile
 $ module load Dev/Ruby/3.0.3
 $ umask 000 # to set the default directory permission to 777
