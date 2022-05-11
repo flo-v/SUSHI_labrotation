@@ -10,7 +10,8 @@ Table of Contents
 * [06-08 May 2022, testing FastQC & Minimal app and ezrun install test Flo](#06-08-may-2022testing-fastqc--minimal-app-and-ezrun-install-test-flo)  
 * [09 May, 2022, updated SUSHI configuration](#09-may-2022-updated-sushi-configuration-masa)
 * [09-10 May, 2022, test updated SUSHI, flo](#09-10-may-2022-test-updated-sushi-flo)
-* [11 May 2022, Updated flo\_sushi\_20220511 again](#11-may-2022-updated-flo_sushi_20220511-again)
+* [11 May 2022, Updated flo\_sushi\_20220511 again, masa](#11-may-2022-updated-flo_sushi_20220511-again-masa)
+* [11 May 2022, Updated flo\_sushi\_20220511 test, flo](#11-may-2022-updated-flo_sushi_20220511-test-flo)
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)
 
@@ -510,7 +511,7 @@ it worked! but same problems apply as above when original FastqcApp was run
 * ~~Masa made changes to flo_sushi like changing paths etc to avoid permission problems. Is this done in the sushi instance I forked on Github?~~
 
 
-## 11 May 2022, Updated flo_sushi_20220511 again
+## 11 May 2022, Updated flo_sushi_20220511 again, Masa
 
 Dear Florian
 
@@ -521,11 +522,18 @@ Please copy the following file to your working directory and test it again
 
 I have updated some setting to make a link correctly in Florian SUSHI.
 
-
-
-
-
-
-
+## 11 May 2022, Updated flo_sushi_20220511 test, flo
+```
+fvetsc@fgcz-c-047:/srv/kenlab/flo
+rm -rf flo_sushi_20220*
+cp -r /srv/kenlab/masa/2022/UZH/Masa/test_sushi_20220426/flo_sushi_20220511.tgz .
+tar zxvf flo_sushi_20220511.tgz
+cd flo_sushi_20220511/master/
+source /usr/local/ngseq/etc/lmod_profile
+module load Dev/Ruby/3.0.3
+umask 000 # to set the default directory permission to 777
+bundle exec rails s -e production -b fgcz-c-047.uzh.ch -p 5000
+```
+Finally all working!
 
 
