@@ -536,4 +536,19 @@ bundle exec rails s -e production -b fgcz-c-047.uzh.ch -p 5000
 ```
 Finally all working!
 
+## 12 May 2022, sample dataset, Masa
+
+Comments
+* You can use the following data as a sample dataset
+
+```
+/srv/gstore/projects/p1535/test_vcf_dataset/
+dataset.tsv  ragi_highcov_sa0001_1k.vcf.gz
+```
+
+* and you can refere to *lib/VcfStatsApp.rb* as an example of SUSHI application to process the vcf file.
+
+If you have any questions, please do not hesitate to ask me.
+
+
 
