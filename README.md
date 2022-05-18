@@ -13,6 +13,10 @@ Table of Contents
 * [11 May 2022, Updated flo\_sushi\_20220511 again, masa](#11-may-2022-updated-flo_sushi_20220511-again-masa)
 * [11 May 2022, Updated flo\_sushi\_20220511 test, flo](#11-may-2022-updated-flo_sushi_20220511-test-flo)
 * [12 May 2022, sample dataset, Masa](#12-may-2022-sample-dataset-masa)
+* [12-17 May 2022, flo was sick](#12-17-may-2022-flo-was-sick)
+* [16 May 2022, creating aliases & vim defaults, flo](#16-may-2022-creating-aliases--vim-defaults-flo)
+* [18 May 2022, general way sushi app works, flo](#18-may-2022-general-way-sushi-app-works-flo)
+* [18 May 2022, trying to import vcf files, flo](#18-may-2022-trying-to-import-vcf-files-flo)
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)
 
@@ -552,4 +556,58 @@ dataset.tsv  ragi_highcov_sa0001_1k.vcf.gz
 If you have any questions, please do not hesitate to ask me.
 
 
+
+# 12-17 May 2022, flo was sick
+
+# 16 May 2022, creating aliases & vim defaults, flo
+```
+$ fvetsc@fgcz-c-047:/home/fvetsc
+# use: echo "text to add" >> .bash_aliases   and  cat .bash_aliases to copy and paste content from the file
+$ vim .bash_aliases
+alias pa="cd /srv/kenlab/flo/flo_sushi_20220511/master/"
+alias strt="cd /srv/kenlab/flo/flo_sushi_20220511/master/ && source /usr/local/ngseq/etc/lmod_profile && module load Dev/Ruby/3.0.3 && umask 000 && bundle exec rails s -e production -b fgcz-c-047.uzh.ch -p 5000"
+alias che="ps aux |grep rails"
+
+$ vim .vimrc
+colo industry # setting default colourscheme
+```
+
+# 18 May 2022, general way sushi app works, flo
+Apps in master/lib are written in Ruby and contain function "commands" in which run_RApp("name_of_App") is called.   
+Function "run_RApp" is defined in master/lib/golbal_variables.rb. run_RApp loads the ezRun package.
+
+In ezRun all the Apps written in R are in directory R
+The ezRunApps contain two important definitions:
+
+* ezMethod<application_name> eg. ezMethodVcfStats: 
+Here is where the dataanalysis in R is coded
+
+* ezApp<application_name> eg.ezAppVcfStats:  
+This is were the R class is created (inherits from ezApp superclass). In the class ezMethod<application_name> is called
+
+ezRun/inst/templates contains the markdown documents associated with the specific apps, the analysis done in the App that is in directory "R".  
+The Results are loaded in the template and then only the plotting is done in the markdown template.
+Tabs on sushi webpage html output corresond to sections under title in the template
+
+ezRun must be installed again, every time that changes in Apps (R) or templates (R Markdown) are made
+
+
+In sushi webpage: Index of shows path to file on gstore of functional genomics center (there only read permissions) therefore copying necessarry for editing   
+To be able to use VcfStatsApp we need to add column namede "Dummy" as column Name requirements of app must be fulfilled by dataset (check column requirements in Help--SushiApp List
+Use SNPrelate library for phylogenetic trees
+
+
+
+# 18 May 2022, Trying to import vcf files, flo
+tried to import ragi_highcov_sa0001_1k.vcf.gz or ragi_highcov_sa0001_1k.vcf to sushi   
+
+from local command line:
+```
+scp fvetsc@fgcz-c-047.uzh.ch:/srv/gstore/projects/p1535/test_vcf_dataset/ragi_highcov_sa0001_1k.vcf.gz .
+gzip -dk ragi_highcov_sa0001_1k.vcf.gz
+```
+load the dataset to sushi by using [FGCZ website steps](#fgcz-website-steps)
+### Problem:
+* ragi_highcov_sa0001_1k.vcf.gz cannot be imported (Sushi webpage message: We're sorry, but something went wrong.)
+This problem also appeared when I tried to import other vcf files
 
