@@ -17,7 +17,7 @@ Table of Contents
 * [16 May 2022, creating aliases & vim defaults, flo](#16-may-2022-creating-aliases--vim-defaults-flo)
 * [18 May 2022, general way sushi app works, flo](#18-may-2022-general-way-sushi-app-works-flo)
 * [18 May 2022, trying to import vcf files, flo](#18-may-2022-trying-to-import-vcf-files-flo)
-* [19-21 May 2022, flo was sick again](#19-11-may-2022-flo-was-sick-again)
+* [19-21 May 2022, flo was sick again](#19-21-may-2022-flo-was-sick-again)
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)
 
