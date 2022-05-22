@@ -17,6 +17,7 @@ Table of Contents
 * [16 May 2022, creating aliases & vim defaults, flo](#16-may-2022-creating-aliases--vim-defaults-flo)
 * [18 May 2022, general way sushi app works, flo](#18-may-2022-general-way-sushi-app-works-flo)
 * [18 May 2022, trying to import vcf files, flo](#18-may-2022-trying-to-import-vcf-files-flo)
+* [19-21 May 2022, flo was sick again](#19-11-may-2022-flo-was-sick-again)
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)
 
@@ -610,4 +611,6 @@ load the dataset to sushi by using [FGCZ website steps](#fgcz-website-steps)
 ### Problem:
 * ragi_highcov_sa0001_1k.vcf.gz cannot be imported (Sushi webpage message: We're sorry, but something went wrong.)
 This problem also appeared when I tried to import other vcf files
+
+# 19-21 May 2022, flo was sick again
 
