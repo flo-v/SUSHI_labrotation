@@ -18,6 +18,7 @@ Table of Contents
 * [18 May 2022, general way sushi app works, flo](#18-may-2022-general-way-sushi-app-works-flo)
 * [18 May 2022, trying to import vcf files, flo](#18-may-2022-trying-to-import-vcf-files-flo)
 * [19-21 May 2022, flo was sick again](#19-21-may-2022-flo-was-sick-again)
+* [23 May 2022, Hint for import, Masa](#23-may-2022-hint-for-import-masa)
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)
 
