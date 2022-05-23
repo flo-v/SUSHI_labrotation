@@ -614,3 +614,14 @@ This problem also appeared when I tried to import other vcf files
 
 # 19-21 May 2022, flo was sick again
 
+
+# 23 May 2022, Hint for import, Masa
+
+Hint
+* The importable file to SUSHI is only *.tsv file (which becomes a DataSet).
+* Please download the following file and import it in SUSHI, https://fgcz-sushi.uzh.ch/projects/p1535/test_vcf_dataset/dataset.tsv
+
+Note
+* Please look at the file, dataset.tsv (Tab-Separated-Value, text file). It contains the file path to the actual vcf file.
+
+
