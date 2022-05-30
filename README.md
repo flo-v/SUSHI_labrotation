@@ -19,6 +19,7 @@ Table of Contents
 * [18 May 2022, trying to import vcf files, flo](#18-may-2022-trying-to-import-vcf-files-flo)
 * [19-21 May 2022, flo was sick again](#19-21-may-2022-flo-was-sick-again)
 * [23 May 2022, Hint for import, Masa](#23-may-2022-hint-for-import-masa)
+* [30 May 2022, testing own app, flo](#30-may-2022-testing-own-app-flo)
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)
 
@@ -627,7 +628,7 @@ Note
 
 # 30 May 2022, Testing own app, Flo
 
-
+## creating new ezRun R app
 ```
 fvetsc@fgcz-c-047:/srv/kenlab/flo/flo_sushi_20220511/master/lib$
 $ vim Fastqc_1App.rb
@@ -638,9 +639,9 @@ cp app-fastQC.R ./app-fastQC_1.R
 vim app-fastQC_1.R
 ```
 
-## places where EzRun app name is important
-
-### change all "FastQC" to "FastQC_1" 
+### places where EzRun app name is important
+following hasn't been done yet  
+#### change all "FastQC" to "FastQC_1" 
 chnaged at the following places: 
 * when defining the ezMethod  (1 change)
  ```ezMethodFastQC  <- function(```
@@ -697,7 +698,7 @@ EzAppFastqc <-
     )
   )
 ```
-### change all "Fastqc" to "Fastqc_1" 
+#### change all "Fastqc" to "Fastqc_1" 
 
 * don't really know what this is for (1)  
 ```ans4Report[["Fastqc quality measures"]] <- tbl```
@@ -716,7 +717,7 @@ EzAppFastqc <-
     )
   )
 ```
-### change all "fastqc" to "fastqc_1" 
+#### change all "fastqc" to "fastqc_1" 
 
 * werhe we define name of html report (1)
 ```
@@ -751,19 +752,24 @@ EzAppFastqc <-
   ezSystem("multiqc .")
 ```
 
-## Then do whatever changes the tryout app should perform also:
-
-
-
-
-
-
-
-
-
-
-
-
+### Then do whatever changes the tryout app should perform also:
+  
+## creating new ezRun markdown templates
+here FastQC.Rmd & FastQC_overview.Rmd
+  
+Filler
+* f
+* f
+* f
+* f
+* f
+* f
+* f
+* f
+* f
+* f
+* f
+* f
 
 
 from local command line:
