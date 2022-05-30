@@ -625,4 +625,21 @@ Hint
 Note
 * Please look at the file, dataset.tsv (Tab-Separated-Value, text file). It contains the file path to the actual vcf file.
 
+# 30 May 2022, Testing own app, Flo
+
+from local command line:
+```
+scp fvetsc@fgcz-c-047.uzh.ch:/srv/gstore/projects/p1535/test_vcf_dataset/dataset.tsv .
+```
+load the dataset to sushi by using [FGCZ website steps](#fgcz-website-steps)
+
+
+### Problem:
+An error happens with importing dataset.tsv
+RED file(s) or the following does not exist in gstore: /srv/GT/analysis/course_sushi/public/gstore/projects:
+p1535/test_vcf_dataset/ragi_highcov_sa0001_1k.vcf.gz
+
+
+
+
 
