@@ -627,6 +627,145 @@ Note
 
 # 30 May 2022, Testing own app, Flo
 
+
+```
+fvetsc@fgcz-c-047:/srv/kenlab/flo/flo_sushi_20220511/master/lib$
+$ vim Fastqc_1App.rb
+# change in def commands so a different EzApp is called: run_RApp("EzAppFastqc_1")
+
+fvetsc@fgcz-h-176:~/ezRun/R$
+cp app-fastQC.R ./app-fastQC_1.R
+vim app-fastQC_1.R
+```
+
+## places where EzRun app name is important
+
+### change all "FastQC" to "FastQC_1" 
+chnaged at the following places: 
+* when defining the ezMethod  (1 change)
+ ```ezMethodFastQC  <- function(```
+* name of the style files that should be copied (here 2 changes)
+```
+  ## Copy the style files and templates
+  styleFiles <- file.path(
+    system.file("templates", package = "ezRun"),
+    c(
+      "fgcz.css", "FastQC.Rmd", "FastQC_overview.Rmd",
+      "fgcz_header.html", "banner.png"
+    )
+  )
+  file.copy(from = styleFiles, to = ".", overwrite = TRUE)
+```
+* when calling the style files (1)
+```
+  ## make for each plot type an html report with all samples
+  plotPages <- sub(".png", ".html", plots)
+  for (i in 1:length(plots)) {
+    plotPage <- plotPages[i]
+    pngs <- file.path(reportDirs, "Images", plots[i])
+    rmarkdown::render(
+      input = "FastQC_overview.Rmd", envir = new.env(),
+      output_dir = ".", output_file = plotPage, quiet = TRUE
+    )
+  }
+```
+* when calling the style files (1)
+```
+  ## generate the main reports
+  rmarkdown::render(
+    input = "FastQC.Rmd", envir = new.env(),
+    output_dir = ".", output_file = htmlFile, quiet = TRUE
+  )
+```
+* don't really know what this is for (1)
+```
+##' @template app-template
+##' @templateVar method ezMethodFastQC(input=NA, output=NA, param=NA, htmlFile="00index.html")
+```
+* when creating the app class (2: method call and description)
+```
+EzAppFastqc <-
+  setRefClass("EzAppFastqc",
+    contains = "EzApp",
+    methods = list(
+      initialize = function() {
+        "Initializes the application using its specific defaults."
+        runMethod <<- ezMethodFastQC
+        name <<- "EzAppFastqc"
+        appDefaults <<- rbind(perLibrary = ezFrame(Type = "logical", DefaultValue = TRUE, Description = "Run FastQC per library or per cell for single cell experiment"))
+      }
+    )
+  )
+```
+### change all "Fastqc" to "Fastqc_1" 
+
+* don't really know what this is for (1)  
+```ans4Report[["Fastqc quality measures"]] <- tbl```
+* when creating the app class (3)
+```
+EzAppFastqc <-
+  setRefClass("EzAppFastqc",
+    contains = "EzApp",
+    methods = list(
+      initialize = function() {
+        "Initializes the application using its specific defaults."
+        runMethod <<- ezMethodFastQC
+        name <<- "EzAppFastqc"
+        appDefaults <<- rbind(perLibrary = ezFrame(Type = "logical", DefaultValue = TRUE, Description = "Run FastQC per library or per cell for single cell experiment"))
+      }
+    )
+  )
+```
+### change all "fastqc" to "fastqc_1" 
+
+* werhe we define name of html report (1)
+```
+  rowNames <- paste0(
+    "<a href=", reportDirs, "/fastqc_report.html>",
+    names(files), "</a>"
+  )
+```
+* werhe we define name of html report (1)
+```
+  tbl <- ezMatrix("", rows = rowNames, cols = smy[[2]])
+  for (i in 1:nFiles) {
+    smy <- ezRead.table(file.path(reportDirs[i], "summary.txt"),
+      row.names = NULL, header = FALSE
+    )
+
+    href <- paste0(
+      reportDirs[i], "/fastqc_report.html#M",
+      0:(ncol(tbl) - 1)
+    )[colnames(tbl) %in% smy[[2]]]
+    img <- paste0(reportDirs[1], "/Icons/", statusToPng[smy[[1]]])
+    tbl[i, colnames(tbl) %in% smy[[2]]] <- paste0(
+      "<a href=", href,
+      "><img src=", img, "></a>"
+    )
+  }
+```
+* leave fastqc calls be in ezMethod defintion as I think that refers not to the app but to a bash programm
+* also leave multiqc as it is
+```
+## generate multiQC report
+  ezSystem("multiqc .")
+```
+
+## Then do whatever changes the tryout app should perform also:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 from local command line:
 ```
 scp fvetsc@fgcz-c-047.uzh.ch:/srv/gstore/projects/p1535/test_vcf_dataset/dataset.tsv .
