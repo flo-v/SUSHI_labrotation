@@ -640,7 +640,7 @@ vim app-fastQC_1.R
 ```
 
 ### places where EzRun app name is important
-following hasn't been done yet  
+in the following the markdown template names haven't been altered yet    
 #### change all "FastQC" to "FastQC_1" 
 chnaged at the following places: 
 * when defining the ezMethod  (1 change)
@@ -752,24 +752,22 @@ EzAppFastqc <-
   ezSystem("multiqc .")
 ```
 
+Then push to github, reinstall ezRun, run sushi and check if app works
+
+### Problem:
+Job with ruby app that calls new ezRun app fails. Log states:  
+Fehler: Objekt 'EzAppFastqc_1' nicht gefunden
+Ausführung angehalten
+
+
+
+
 ### Then do whatever changes the tryout app should perform also:
   
 ## creating new ezRun markdown templates
+Not done yet  
 here FastQC.Rmd & FastQC_overview.Rmd
-  
-Filler
-* f
-* f
-* f
-* f
-* f
-* f
-* f
-* f
-* f
-* f
-* f
-* f
+
 
 
 from local command line:
