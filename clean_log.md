@@ -12,7 +12,10 @@ Table of Contents
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)  
   
 Cheat Sheet
-* https://docs.google.com/document/d/1wTNdJgTzK7J54p90yH-djF5L_4VUwl64JknVmSCNxCE
+* https://docs.google.com/document/d/1wTNdJgTzK7J54p90yH-djF5L_4VUwl64JknVmSCNxCE  
+
+General info on how sushi works by Florian
+* https://github.com/flo-v/SUSHI_labrotation/blob/main/README.md#18-may-2022-general-way-sushi-app-works-flo
 
 ## Setup and test running apps
 
@@ -44,10 +47,11 @@ $ ssh-keygen -t ed25519 -C "flo-v@Github"
 $ eval "$(ssh-agent -s)"
 $ ssh-add ~/.ssh/id_ed25519
 $ cat ~/.ssh/id_ed25519.pub # copy the key from output
-# adding key on Github.com
-$ git clone git@github.com:flo-v/ezRun.git
+# one has to add key on Github.com
+$ cd /srv/GT/analysis/florian/
+$ git clone git@github.com:flo-v/ezRun.git # creates git repo
 
-$ R CMD INSTALL /srv/GT/analysis/florian/ezRun
+$ R CMD INSTALL /srv/GT/analysis/florian/ezRun # needs to link to git repo 
 $ ls /srv/GT/analysis/florian/R_LIBS/ # check if ezRun is listed under libraries
 $ exit
 ```
@@ -110,6 +114,21 @@ Run analysis on data:
 6. Select whatever application you want (here FastQCApp), and submit
 7. Wait for some minutes, and check the result (by clicking on DataSets once again)
 
+### Creating aliases
+This way one doesn't always have to type all the commands  
+```
+$ fvetsc@fgcz-c-047:/home/fvetsc # is my home directory
+# use: echo "text to add" >> .bash_aliases   and  cat .bash_aliases to copy and paste content from the file, if it doensn't work directly from txt editor
+$ vim .bash_aliases
+alias supa="cd /srv/kenlab/flo/flo_sushi_20220511/master/"
+alias strt="cd /srv/kenlab/flo/flo_sushi_20220511/master/ && source /usr/local/ngseq/etc/lmod_profile && module load Dev/Ruby/3.0.3 && umask 000 && bundle exec rails s -e production -b fgcz-c-047.uzh.ch -p 5000"
+alias che="ps aux |grep rails"
+alias ezpa="cd /srv/GT/analysis/florian/ezRun"
+alias ezins="R CMD INSTALL /srv/GT/analysis/florian/ezRun"
+  
+$ vim .vimrc
+colo industry # setting default colourscheme
+```
 
 ## Creating new apps
 
@@ -125,7 +144,7 @@ $ git add Fastqc_1App.rb
 $ git commit -m "new app Fastqc_1App.rb" 
 $ git push
 ```
-Test if app works by running [sushi](#executing-sushi-steps) with [fgcz](#fgcz-website-steps) steps
+Test if app works by running [sushi](#executing-sushi-steps) (or by using alias "strt" on kenlab server). Then perform [fgcz](#fgcz-website-steps) steps.
 
 
 
