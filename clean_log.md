@@ -69,6 +69,7 @@ $ grep 'flo' lib/global_variables.rb
     * Previously, it was */srv/gstore/projects/p1535* (this was allowed only for Employees)
 
 * changed the settings to get proper html outputs
+* changed the place where raw data files are stored (different from gstore that production sushi uses)
 
 
 ### Running sushi on kenlab server
