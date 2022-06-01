@@ -20,6 +20,7 @@ Table of Contents
 * [19-21 May 2022, flo was sick again](#19-21-may-2022-flo-was-sick-again)
 * [23 May 2022, Hint for import, Masa](#23-may-2022-hint-for-import-masa)
 * [30 May 2022, testing own app, flo](#30-may-2022-testing-own-app-flo)
+* [01 June 2022, Meeting solving problems, Masa \+ Flo](#01-june-2022-meeting-solving-problems-masa--flo)
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)
 
@@ -61,7 +62,8 @@ Setup test dataset in p1535
 1. Select project 1535
 2. gStore-ventricles_100k-test_masa_dataset.tsv (download)
 3. Import-Browse-test_masa_dataset.tsv-DataSet Name:xxxx-load dataset
-4. Confirm by clickin DataSet in menu
+4. Confi
+by clickin DataSet in menu
 5. Click test_dataset (Applications - refresh if you cannot see the application buttons)
 6. Select FastQCApp, and submit
 7. Wait for a minute, and check the result
@@ -567,15 +569,20 @@ If you have any questions, please do not hesitate to ask me.
 $ fvetsc@fgcz-c-047:/home/fvetsc
 # use: echo "text to add" >> .bash_aliases   and  cat .bash_aliases to copy and paste content from the file
 $ vim .bash_aliases
-alias pa="cd /srv/kenlab/flo/flo_sushi_20220511/master/"
+alias supa="cd /srv/kenlab/flo/flo_sushi_20220511/master/"
 alias strt="cd /srv/kenlab/flo/flo_sushi_20220511/master/ && source /usr/local/ngseq/etc/lmod_profile && module load Dev/Ruby/3.0.3 && umask 000 && bundle exec rails s -e production -b fgcz-c-047.uzh.ch -p 5000"
 alias che="ps aux |grep rails"
-
+alias ezpa="cd /srv/GT/analysis/florian/ezRun"
+alias ezins="R CMD INSTALL /srv/GT/analysis/florian/ezRun"
+  
 $ vim .vimrc
 colo industry # setting default colourscheme
 ```
 
 # 18 May 2022, general way sushi app works, flo
+When a tsv file is imported from the local machine to sushi, this file contains only the column name information and the path to the raw data in the gstore.
+The raw data must always be at the right point in the gstore otherwise the import from local will fail.  
+  
 Apps in master/lib are written in Ruby and contain function "commands" in which run_RApp("name_of_App") is called.   
 Function "run_RApp" is defined in master/lib/golbal_variables.rb. run_RApp loads the ezRun package.
 
@@ -754,14 +761,6 @@ EzAppFastqc <-
 
 Then push to github, reinstall ezRun, run sushi and check if app works
 
-### Problem:
-Job with ruby app that calls new ezRun app fails. Log states:  
-Fehler: Objekt 'EzAppFastqc_1' nicht gefunden
-Ausführung angehalten
-
-
-
-
 ### Then do whatever changes the tryout app should perform also:
   
 ## creating new ezRun markdown templates
@@ -770,19 +769,29 @@ here FastQC.Rmd & FastQC_overview.Rmd
 
 
 
+# 01 June 2022, Meeting solving problems, Masa + Flo
+
+### Problem 1 :
 from local command line:
 ```
 scp fvetsc@fgcz-c-047.uzh.ch:/srv/gstore/projects/p1535/test_vcf_dataset/dataset.tsv .
-```
-load the dataset to sushi by using [FGCZ website steps](#fgcz-website-steps)
-
-
-### Problem:
-An error happens with importing dataset.tsv
+```  
+load the dataset to sushi by using [FGCZ website steps](#fgcz-website-steps)    
+An error happens with importing dataset.tsv  
 RED file(s) or the following does not exist in gstore: /srv/GT/analysis/course_sushi/public/gstore/projects:
-p1535/test_vcf_dataset/ragi_highcov_sa0001_1k.vcf.gz
+p1535/test_vcf_dataset/ragi_highcov_sa0001_1k.vcf.gz  
+Solution:  
+The problem was that in my case files are not stored at same place as the production sushi and raw data of dataset.tsv was only on gstore of production sushi.
+The file had to be added to my storage as well.
+In my sushi instance data is stored at: /srv/GT/analysis/course_sushi/public/gstore/projects
 
 
+### Problem 2:
+Job with ruby app that calls new ezRun app fails. Log states:  
+Fehler: Objekt 'EzAppFastqc_1' nicht gefunden
+Ausführung angehalten
 
-
-
+Solution:
+Installation path of ezins was linking to the source code that was not updated: 
+```/srv/GT/analysis/florian/ezRun```  
+Therefore I deleted the old repo and made sure that under ```/srv/GT/analysis/florian/ezRun``` is the git repo that gets updated
