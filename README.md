@@ -21,6 +21,7 @@ Table of Contents
 * [23 May 2022, Hint for import, Masa](#23-may-2022-hint-for-import-masa)
 * [30 May 2022, testing own app, flo](#30-may-2022-testing-own-app-flo)
 * [01 June 2022, Meeting solving problems, Masa \+ Flo](#01-june-2022-meeting-solving-problems-masa--flo)
+* [02 June 2022, Start my own popgen app,flo](#02-june-2022-start-my-own-popgen-app-flo)
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)
 
@@ -582,8 +583,9 @@ colo industry # setting default colourscheme
 # 18 May 2022, general way sushi app works, flo
 When a tsv file is imported from the local machine to sushi, this file contains only the column name information and the path to the raw data in the gstore.
 The raw data must always be at the right point in the gstore otherwise the import from local will fail.  
+In my case files weren't located at normal gstore of production sushi bc of permission problems (needs to be kept in mind).   
   
-Apps in master/lib are written in Ruby and contain function "commands" in which run_RApp("name_of_App") is called.   
+Apps in master/lib are written in Ruby and contain function "commands" in which run_RApp("name_of_App") is called (calls R App corresponding to this ruby app).   
 Function "run_RApp" is defined in master/lib/golbal_variables.rb. run_RApp loads the ezRun package.
 
 In ezRun all the Apps written in R are in directory R
@@ -595,14 +597,14 @@ Here is where the dataanalysis in R is coded
 * ezApp<application_name> eg.ezAppVcfStats:  
 This is were the R class is created (inherits from ezApp superclass). In the class ezMethod<application_name> is called
 
-ezRun/inst/templates contains the markdown documents associated with the specific apps, the analysis done in the App that is in directory "R".  
+ezRun/inst/templates contains the markdown documents associated with the specific R apps, the analysis done in the App that is in directory "R".  
 The Results are loaded in the template and then only the plotting is done in the markdown template.
 Tabs on sushi webpage html output corresond to sections under title in the template
 
 ezRun must be installed again, every time that changes in Apps (R) or templates (R Markdown) are made
 
 
-In sushi webpage: Index of shows path to file on gstore of functional genomics center (there only read permissions) therefore copying necessarry for editing   
+In sushi webpage: Index shows path to file on gstore of functional genomics center (there I only have read permissions) therefore copying of files necessarry for editing   
 To be able to use VcfStatsApp we need to add column namede "Dummy" as column Name requirements of app must be fulfilled by dataset (check column requirements in Help--SushiApp List
 Use SNPrelate library for phylogenetic trees
 
@@ -760,14 +762,17 @@ EzAppFastqc <-
 ```
 
 Then push to github, reinstall ezRun, run sushi and check if app works
-
-### Then do whatever changes the tryout app should perform also:
   
 ## creating new ezRun markdown templates
-Not done yet  
-here FastQC.Rmd & FastQC_overview.Rmd
+```
+fvetsc@fgcz-h-176:/srv/GT/analysis/florian/ezRun/inst/templates$
+cp FastQC.Rmd FastQC_1.Rmd
+cp FastQC_overview.Rmd FastQC_1_overview.Rmd
+```
+Changes in the file were just titles and table-column names to FastQC_1.  
 
-
+Then push to github, reinstall ezRun, run sushi and check if app with new templates works.  
+It worked.
 
 # 01 June 2022, Meeting solving problems, Masa + Flo
 
@@ -795,3 +800,20 @@ Solution:
 Installation path of ezins was linking to the source code that was not updated: 
 ```/srv/GT/analysis/florian/ezRun```  
 Therefore I deleted the old repo and made sure that under ```/srv/GT/analysis/florian/ezRun``` is the git repo that gets updated
+
+# 02 June 2022, Start my own popgen app, Flo
+Using as a basis ```VcfStatsApp.rb``` 
+```
+fvetsc@fgcz-c-047:/srv/kenlab/flo/flo_sushi_20220511/master/lib$
+cp VcfStatsApp.rb FloApp.rb
+fvetsc@fgcz-h-176:/srv/GT/analysis/florian/ezRun/R$
+cp app-VcfStats.R app-Flo.R
+cd ../inst/templates
+cp VcfStats.Rmd Flo.Rmd
+```
+Edit all files in a new app.  
+
+
+
+
+
