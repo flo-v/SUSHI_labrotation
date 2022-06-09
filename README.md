@@ -22,7 +22,9 @@ Table of Contents
 * [30 May 2022, testing own app, flo](#30-may-2022-testing-own-app-flo)
 * [01 June 2022, Meeting solving problems, Masa \+ Flo](#01-june-2022-meeting-solving-problems-masa--flo)
 * [02 June 2022, Start my own popgen app,flo](#02-june-2022-start-my-own-popgen-app-flo)
-
+* [04-08 June 2022, Sick again, Flo](#04-08-june-2022-sick-again-flo)
+* [09 June 2022, continue popgen app, Flo](#09-june-2022-continue-popgen-app-flo)  
+   
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)
 
 ## 26 Apr. 2022, Kick-off meeting, Florian + Masa
@@ -813,6 +815,19 @@ cp VcfStats.Rmd Flo.Rmd
 ```
 Edit all files in a new app.  
 
+# 04-08 June 2022, Sick again, Flo
+
+# 09 June 2022, continue popgen app, Flo
+* added new tab in Flo.Rmd for PCA analysis:
+  * displaying head of dataset
+  
+* started on R script for PCA analysis
+
+## Questions:
+* If I understand correctly: app-VcfStats.R does not do the SNP counting itself. The counting is done via bash command by the "vcf-stats" command line tool.  
+I do not really understood yet what the equvialent to this would be when wanting to get the data ready for the pca plot. Do I simply do all in the R file or do I need to call on a command line tool?  
+* vcf / gds transformation
+* explain again please where the output of my analysis is stored and then accessed from the markdwon files
 
 
 
