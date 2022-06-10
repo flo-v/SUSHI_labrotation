@@ -849,4 +849,13 @@ You can choose whatever, either using external command (software) or using R pac
 
 I can explain it again later when we meet.
 
+# 10 June 2022, Florian
 
+* updated app-Flo.R to load necessary libraries
+### Rroblem:
+Log: 
+Fehler in library(SNPRelate) : es gibt kein Paket namens ‘SNPRelate’
+Ruft auf: <Anonymous> -> withCallingHandlers -> runMethod -> library
+error exists: gxtx_data_mngt@fgcz.ethz.ch
+mail sent to: gxtx_data_mngt@fgcz.ethz.ch
+Ausführung angehalten
