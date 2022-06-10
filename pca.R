@@ -5,6 +5,8 @@ library(SNPRelate)
 library("gdsfmt")
 
 vcf.fn <- system.file("extdata", "sequence.vcf", package="SNPRelate")
+
+vcf.fn <- "~/ragi_highcov_sa0001_1k.vcf.gz"
 # Reformat
 snpgdsVCF2GDS(vcf.fn, "test.gds", method="biallelic.only")
 # Summary
@@ -12,12 +14,12 @@ snpgdsSummary("test.gds")
 
 
 # open a GDS file
-# genofile <- seqOpen("test.gds") # cannot find function
-# genofile <- read.gdsn("test.gds") # not working either
+genofile <- seqOpen("test.gds") # cannot find function
+genofile <- read.gdsn("test.gds") # not working either
 
-# genofile <- snpgdsOpen("test.gds") this kind of works
+# genofile <- snpgdsOpen("test.gds") #this kind of works
 
-(genofile <- snpgdsOpen(snpgdsExampleFileName()))
+# (genofile <- snpgdsOpen(snpgdsExampleFileName()))
 
 # Run PCA
 pca <- snpgdsPCA(genofile)
@@ -32,12 +34,3 @@ head(tab)
 
 # Draw
 plot(tab$EV2, tab$EV1, xlab="eigenvector 2", ylab="eigenvector 1")
-
-
-
-# prefix <- file.path("hi", "vcf_stats")
-# paste("vcf-stats", file.path("/srv/gstore/projects", "get"), "-p", prefix)
-# 
-
-
-
