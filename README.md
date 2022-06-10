@@ -849,13 +849,32 @@ You can choose whatever, either using external command (software) or using R pac
 
 I can explain it again later when we meet.
 
-# 10 June 2022, Florian
+# 10 June 2022, Florian + Masa
 
 * updated app-Flo.R to load necessary libraries
-### Rroblem:
+### Problem:
 Log: 
 Fehler in library(SNPRelate) : es gibt kein Paket namens ‘SNPRelate’
 Ruft auf: <Anonymous> -> withCallingHandlers -> runMethod -> library
 error exists: gxtx_data_mngt@fgcz.ethz.ch
 mail sent to: gxtx_data_mngt@fgcz.ethz.ch
 Ausführung angehalten
+
+### Answer:
+
+* I succeeded in loading SNPRelate in my environment. Please check *.libPaths()* and your *~/.Rprofile*.
+
+in RStudio (https://fgcz-genomics.uzh.ch)
+```
+> R.version.string
+[1] "R version 4.1.2 (2021-11-01)"
+
+> .libPaths()
+[1] "/misc/GT/analysis/florian/R_LIBS"                 "/misc/ngseq10/packages/Dev/R/4.1.2/lib/R/library"
+
+> library(SNPRelate)
+Loading required package: gdsfmt
+SNPRelate -- supported by Streaming SIMD Extensions 2 (SSE2)
+```
+
+
