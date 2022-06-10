@@ -877,4 +877,8 @@ Loading required package: gdsfmt
 SNPRelate -- supported by Streaming SIMD Extensions 2 (SSE2)
 ```
 
+* I have found the cause. By default, *snpgdsPCA()* removed other than autosomal SNPs (probably based on the scaffold/chromosome IDs in VCF file).
+* Please add the following option: *autosome.only=FALSE*
+    * cf. https://support.bioconductor.org/p/114050/
+    * I searched by Google with the key words from error message like this: "SNPRelate Excluding  SNPs on non-autosomes"
 

@@ -4,7 +4,7 @@ library(SNPRelate)
 # library(SeqArray) # not installed on server
 library("gdsfmt")
 
-vcf.fn <- system.file("extdata", "sequence.vcf", package="SNPRelate")
+#vcf.fn <- system.file("extdata", "sequence.vcf", package="SNPRelate")
 
 vcf.fn <- "~/ragi_highcov_sa0001_1k.vcf.gz"
 # Reformat
@@ -14,16 +14,16 @@ snpgdsSummary("test.gds")
 
 
 # open a GDS file
-genofile <- seqOpen("test.gds") # cannot find function
-genofile <- read.gdsn("test.gds") # not working either
+#genofile <- seqOpen("test.gds") # cannot find function
+#genofile <- read.gdsn("test.gds") # not working either
 
-# genofile <- snpgdsOpen("test.gds") #this kind of works
+genofile <- snpgdsOpen("test.gds") #this kind of works
 
 # (genofile <- snpgdsOpen(snpgdsExampleFileName()))
 
 # Run PCA
-pca <- snpgdsPCA(genofile)
-pca <- snpgdsPCA(genofile, snp.id=snpset.id, num.thread=2)
+pca <- snpgdsPCA(genofile, autosome.only=FALSE)
+#pca <- snpgdsPCA(genofile, snp.id=snpset.id, num.thread=2)
 
 # make a data.frame
 tab <- data.frame(sample.id = pca$sample.id,
