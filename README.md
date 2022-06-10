@@ -845,7 +845,7 @@ You can choose whatever, either using external command (software) or using R pac
 
 2. In the [SNPRelate tutorial](https://www.bioconductor.org/packages/devel/bioc/vignettes/SNPRelate/inst/doc/SNPRelate.html), it gives two ways, *snpgdsVCF2GDS()* or *seqVCF2GDS()* function converts the VCF file into GDS format. Does it not work?
 
-3. You can decide where the output data will be stored. For example, *app-VcfStats.app" set *output_dir* for the output directory. Technically, SUSHI makes a working directory in */scratch* on working node and SUSHI transfers the target directory to */srv/gstore/projects/pXXXX* directory as a post-process. In the SUSHI app, you (developer) should focus on **inside the working directory** and 2) **which direcotry** will be copied at the end of the job by Ruby code (put **[File]** tag to the next dataset column in *next_dataset* function, cf. lib/VcfStatsApp.rb: L31, *'Report [File]'=>report_file*)
+3. You can decide where the output data will be stored. For example, *app-VcfStats.app* set *output_dir* for the output directory. Technically, SUSHI makes a working directory in */scratch* on working node and SUSHI transfers the target directory to */srv/gstore/projects/pXXXX* directory as a post-process. In the SUSHI app, you (developer) should focus on **inside the working directory** and 2) **which direcotry** will be copied at the end of the job by Ruby code (put **[File]** tag to the next dataset column in *next_dataset* function, cf. lib/VcfStatsApp.rb: L31, *'Report [File]'=>report_file*)
 
 I can explain it again later when we meet.
 
