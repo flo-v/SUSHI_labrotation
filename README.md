@@ -830,5 +830,23 @@ I do not really understood yet what the equvialent to this would be when wanting
 * explain again please where the output of my analysis is stored and then accessed from the markdwon files
 
 
+# 10 June 2022, Masa
+
+## Answers:
+
+1. Right. The *app-VcfStats.R* calls *vcf-stats* command (*vcftools*) that counts up SNPs in each sample.
+
+L35, app-VcfStats.R
+```
+cmd <- paste("vcf-stats", file.path("/srv/gstore/projects", input$getColumn("Filtered VCF")), "-p", prefix)
+```
+
+You can choose whatever, either using external command (software) or using R package, but *SNPRelate* does not require to call any external command to make a PCA plt as far as I remember.
+
+2. In the [SNPRelate tutorial](https://www.bioconductor.org/packages/devel/bioc/vignettes/SNPRelate/inst/doc/SNPRelate.html), it gives two ways, *snpgdsVCF2GDS()* or *seqVCF2GDS()* function converts the VCF file into GDS format. Does it not work?
+
+3. You can decide where the output data will be stored. For example, *app-VcfStats.app" set *output_dir* for the output directory. Technically, SUSHI makes a working directory in */scratch* on working node and SUSHI transfers the target directory to */srv/gstore/projects/pXXXX* directory as a post-process. In the SUSHI app, you (developer) should focus on **inside the working directory** and 2) **which direcotry** will be copied at the end of the job by Ruby code (put **[File]** tag to the next dataset column in *next_dataset* function, cf. lib/VcfStatsApp.rb: L31, *'Report [File]'=>report_file*)
+
+I can explain it again later when we meet.
 
 
