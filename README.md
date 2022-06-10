@@ -882,3 +882,21 @@ SNPRelate -- supported by Streaming SIMD Extensions 2 (SSE2)
     * cf. https://support.bioconductor.org/p/114050/
     * I searched by Google with the key words from error message like this: "SNPRelate Excluding  SNPs on non-autosomes"
 
+### Try out the Answer
+ 
+```
+fvetsc@fgcz-h-176:~$ R
+ > R.version.string
+[1] "R version 4.2.0 (2022-04-22)"
+> .libPaths()
+[1] "/misc/GT/analysis/florian/R_LIBS"
+[2] "/misc/ngseq10/packages/Dev/R/4.2.0/lib/R/library"
+> library(SNPRelate)
+Error in library(SNPRelate) : there is no package called ‘SNPRelate’  
+```
+Loading SNPRelate in R studio on https://fgcz-genomics.uzh.ch/ has always worked so far.  
+On the server fvetsc@fgcz-h-176 and when running the app-Flo.R it fails however (see above).  
+The R version on fgcz-h-176 is a newer one than you used, is that a problem?
+
+Thanks a lot for the help with the pca it worked in the R studio!
+   
