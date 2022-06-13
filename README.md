@@ -899,4 +899,82 @@ On the server fvetsc@fgcz-h-176 and when running the app-Flo.R it fails however 
 The R version on fgcz-h-176 is a newer one than you used, is that a problem?
 
 Thanks a lot for the help with the pca it worked in the R studio!
-   
+
+# 13 June 2022, SNPRelate loging test, Masa
+
+Note
+* Recently, the default R version was upgraded to v4.2.0, from 4.1.2.
+* I installed **SNPRelate**, and now it should work.
+
+Tips (for the future)
+* Please check which R version you are using (for installation, for execusion)
+* If you cannot load the library, you can install it where (you have a permission) you can install
+
+Log
+```
+masaomi@fgcz-h-176:~$ module load Dev/R/4.2.0
+
+The following have been reloaded with a version change:
+  1) Dev/R/4.1.2 => Dev/R/4.2.0
+
+masaomi@fgcz-h-176:~$ R -q -e "R.version.string; .libPaths(); library(SNPRelate)"
+> R.version.string; .libPaths(); library(SNPRelate)
+[1] "R version 4.2.0 (2022-04-22)"
+[1] "/misc/GT/analysis/florian/R_LIBS"
+[2] "/misc/ngseq10/packages/Dev/R/4.2.0/lib/R/library"
+Error in library(SNPRelate) : there is no package called ‘SNPRelate’
+Execution halted
+masaomi@fgcz-h-176:~$ module load Dev/R/4.1.2
+
+The following have been reloaded with a version change:
+  1) Dev/R/4.2.0 => Dev/R/4.1.2
+
+masaomi@fgcz-h-176:~$ R -q -e "R.version.string; .libPaths(); library(SNPRelate)"
+> R.version.string; .libPaths(); library(SNPRelate)
+[1] "R version 4.1.2 (2021-11-01)"
+[1] "/misc/GT/analysis/florian/R_LIBS"
+[2] "/misc/ngseq10/packages/Dev/R/4.1.2/lib/R/library"
+Loading required package: gdsfmt
+SNPRelate -- supported by Streaming SIMD Extensions 2 (SSE2)
+
+```
+
+Log
+```
+masaomi@fgcz-h-176:~$ R
+
+R version 4.2.0 (2022-04-22) -- "Vigorous Calisthenics"
+
+> if (!require("BiocManager", quietly = TRUE))
++     install.packages("BiocManager")
+Bioconductor version 3.15 (BiocManager 1.30.18), R 4.2.0 (2022-04-22)
+> BiocManager::install("SNPRelate")
+...
+installing to /misc/GT/analysis/florian/R_LIBS/00LOCK-SNPRelate/00new/SNPRelate/libs
+** R
+** data
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (SNPRelate)
+```
+
+Log
+```
+masaomi@fgcz-h-176:~$ R -q -e "R.version.string; .libPaths(); library(SNPRelate)"
+> R.version.string; .libPaths(); library(SNPRelate)
+[1] "R version 4.2.0 (2022-04-22)"
+[1] "/misc/GT/analysis/florian/R_LIBS"
+[2] "/misc/ngseq10/packages/Dev/R/4.2.0/lib/R/library"
+Loading required package: gdsfmt
+SNPRelate -- supported by Streaming SIMD Extensions 2 (SSE2)
+
+```
+
