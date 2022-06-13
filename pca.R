@@ -1,36 +1,55 @@
-# very preliminary script for PCA analysis
-
+library(ggplot2)
+library(ggrepel)
 library(SNPRelate)
 # library(SeqArray) # not installed on server
 library("gdsfmt")
+rm(list=ls())
 
-#vcf.fn <- system.file("extdata", "sequence.vcf", package="SNPRelate")
-
-vcf.fn <- "~/ragi_highcov_sa0001_1k.vcf.gz"
+snp_pa <- "~/ragi_highcov_sa0001_1k.vcf.gz"
 # Reformat
-snpgdsVCF2GDS(vcf.fn, "test.gds", method="biallelic.only")
+snpgdsVCF2GDS(snp_pa, "snp.gds", method="biallelic.only")
 # Summary
-snpgdsSummary("test.gds")
+snpgdsSummary("snp.gds")
 
 
 # open a GDS file
-#genofile <- seqOpen("test.gds") # cannot find function
-#genofile <- read.gdsn("test.gds") # not working either
+# genofile <- seqOpen("test.gds") # cannot find function
+# genofile <- read.gdsn("test.gds") # not working either
 
-genofile <- snpgdsOpen("test.gds") #this kind of works
+snp <- snpgdsOpen("snp.gds")
 
-# (genofile <- snpgdsOpen(snpgdsExampleFileName()))
 
 # Run PCA
-pca <- snpgdsPCA(genofile, autosome.only=FALSE)
-#pca <- snpgdsPCA(genofile, snp.id=snpset.id, num.thread=2)
+# algorithm, num.thread, bayesian
+pca <- snpgdsPCA(snp, autosome.only=F, remove.monosnp=F)
+
+# those two vecotrs should be the same, approximately true
+(pca$eigenval) / 42
+pca$varprop
+
+cumsum(pca$varprop) # would use first 4 PCs
 
 # make a data.frame
-tab <- data.frame(sample.id = pca$sample.id,
+df <- data.frame(sample.id = pca$sample.id,
                   EV1 = pca$eigenvect[,1],    # the first eigenvector
                   EV2 = pca$eigenvect[,2],    # the second eigenvector
+                  EV3 = pca$eigenvect[,3],
                   stringsAsFactors = FALSE)
-head(tab)
+head(df)
 
 # Draw
-plot(tab$EV2, tab$EV1, xlab="eigenvector 2", ylab="eigenvector 1")
+ggplot(df, aes(x = EV1, y = EV2, colour = EV3)) +
+  geom_point(alpha=0.5) +
+  geom_text(label=df$sample.id, size = 1, check_overlap=T,
+            nudge_y = 0.05) +
+  theme_bw()
+
+
+ggplot(df, aes(x = EV1, y = EV2, label = sample.id)) +
+  geom_point(alpha=0.5, colour="blue", size = 1) +
+  geom_text_repel(size = 1, min.segment.length = 0, box.padding = 0.7,
+                  max.overlaps = 100,
+                  segment.size= 0.1,
+                  segment.linetype = "dashed",
+                  segment.alpha = 0.5) +
+  theme_bw()
