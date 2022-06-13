@@ -24,7 +24,8 @@ Table of Contents
 * [02 June 2022, Start my own popgen app,flo](#02-june-2022-start-my-own-popgen-app-flo)
 * [04-08 June 2022, Sick again, Flo](#04-08-june-2022-sick-again-flo)
 * [09 June 2022, continue popgen app, Flo](#09-june-2022-continue-popgen-app-flo)  
-   
+* [13 June 2022, embeding pca-analysis in the app, Flo](13-june-2022-embeding-pca-analysis-in-the-app-flo) 
+    
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)
 
 ## 26 Apr. 2022, Kick-off meeting, Florian + Masa
@@ -979,5 +980,5 @@ SNPRelate -- supported by Streaming SIMD Extensions 2 (SSE2)
 # 13 June 2022, Embeding pca analysis in the app, Flo
 @ Masa thanks that makes things clearer!
  
-* Altering the R app and the markdwon template accordingly
+* Altering the R app and the markdwon template accordingly   
    So far the pca analysis works, but the ggplots are not displayed properly
