@@ -975,6 +975,9 @@ masaomi@fgcz-h-176:~$ R -q -e "R.version.string; .libPaths(); library(SNPRelate)
 [2] "/misc/ngseq10/packages/Dev/R/4.2.0/lib/R/library"
 Loading required package: gdsfmt
 SNPRelate -- supported by Streaming SIMD Extensions 2 (SSE2)
-
 ```
-
+# 13 June 2022, Embeding pca analysis in the app, Flo
+@ Masa thanks that makes things clearer!
+ 
+* Altering the R app and the markdwon template accordingly
+   So far the pca analysis works, but the ggplots are not displayed properly
