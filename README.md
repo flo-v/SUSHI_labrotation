@@ -977,8 +977,21 @@ masaomi@fgcz-h-176:~$ R -q -e "R.version.string; .libPaths(); library(SNPRelate)
 Loading required package: gdsfmt
 SNPRelate -- supported by Streaming SIMD Extensions 2 (SSE2)
 ```
-# 13 June 2022, Embeding pca analysis in the app, Flo
+# 13-15 June 2022, Embeding pca & phylogenetic analysis in the app, Flo
 @ Masa thanks that makes things clearer!
  
 * Altering the R app and the markdwon template accordingly   
    So far the pca analysis works, but the ggplots are not displayed properly
+    
+```   
+fvetsc@fgcz-h-176:/srv/GT/analysis/florian$
+$R
+BiocManager::install("fastreeR", lib="/misc/GT/analysis/florian/R_LIBS")
+```
+With the R library fastreeR phylogenetic trees can directly be created from vcf files
+
+## Questions:  
+* The analysis all works only the plots are not displayed properly.
+* I am not sure yet which parts of the Flo.R app that are based on the vcf stats app I can delete. I tried to delete the block that runs the vcf stats command line programm but got an error when trying to run the altered app  
+    
+    
