@@ -994,4 +994,7 @@ With the R library fastreeR phylogenetic trees can directly be created from vcf 
 * The analysis all works only the plots are not displayed properly.
 * I am not sure yet which parts of the Flo.R app that are based on the vcf stats app I can delete. I tried to delete the block that runs the vcf stats command line programm but got an error when trying to run the altered app  
     
-    
+## Answers:
+* I have updated /srv/GT/analysis/florian/ezRun/R/app-Flo. Please check: https://github.com/flo-v/ezRun/commit/3e53251dfad562eefc44ac52b8906a57dd29cdb2 
+* *00index_files* folder is generated when you use *ggplot* or *plot* function for figures, except for *plotly*, but you missed copying it to the result folder (*vcf_stats*), and that is why the figure was not shown
+
