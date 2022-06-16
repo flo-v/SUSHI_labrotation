@@ -1,7 +1,7 @@
 # Clean_log SUSHI labrotation
-A cleaner version of the labrotation log, that reduces redundancies  
-Can be of use for the next person building on sushi
-
+A cleaner version of the labrotation log(https://github.com/flo-v/SUSHI_labrotation#sushi_labrotation), that reduces redundancies  
+This document is hopefully of use for the next person building a sushi app.  
+(Written by Florian Vetsch 2022)
 
 Table of Contents
 =================
@@ -23,23 +23,20 @@ General info on how sushi works by Florian
 
 1. Get windows subsystem (or any other way to use bash commands on local mashine)
 2. Create personal Github account (if not already existing)
-3. Making a git repository, for the lab rotation
+3. Making a git repository, for the lab rotation (to keep the working log updated)
 4. Fork SUSHI repository
 5. Fork ezRun repository
 6. Connect Git Repos via ssh with local mashine (https://www.linuxfordevices.com/tutorials/linux/connect-to-github-with-ssh)
 
 @ Masa what did you have to do permission wise to let me use the servers? on the first meeting and then with the second in person meeting
-
-
 @ Masa what permission did you have to give me for the functional genomics server?
 
 ### Instaling ezRun on functional genomics server
 ```
 ssh fvetsc@fgcz-genomics.uzh.ch
 $ vim ~/.Rprofile
-.libPaths("/srv/GT/analysis/florian/R_LIBS")
+.libPaths("/srv/GT/analysis/florian/R_LIBS") # this is the path for installing future R libraries, here I have writing permission
 $ cd /srv/GT/analysis/florian/
-
 # clone ezRun fork into directory, for this we need to generate a ssh key again
 $ ls -al ~/.ssh # check if key is existing, creating a new one anyway
 $ ssh-keygen -t ed25519 -C "flo-v@Github"
@@ -51,7 +48,7 @@ $ cat ~/.ssh/id_ed25519.pub # copy the key from output
 $ cd /srv/GT/analysis/florian/
 $ git clone git@github.com:flo-v/ezRun.git # creates git repo
 
-$ R CMD INSTALL /srv/GT/analysis/florian/ezRun # needs to link to git repo 
+$ R CMD INSTALL /srv/GT/analysis/florian/ezRun # needs to link to git repo so new ezRun updates are always installed
 $ ls /srv/GT/analysis/florian/R_LIBS/ # check if ezRun is listed under libraries
 $ exit
 ```
@@ -104,7 +101,7 @@ $ kill -9 16798 # to stop process
 Then do: 
 
 #### FGCZ website steps
-Start VPN and accessed http://fgcz-c-047.uzh.ch:5000: (5000 or whatever number defined in rails execution)   
+Start VPN (if not in UZH network) and accessed http://fgcz-c-047.uzh.ch:5000: (5000 or whatever number defined in rails execution)   
 Logging in with username  
 Run analysis on data:
 1. Select project 1535 ((if data-to-be-analyzed is already loaded in sushi skip directly to step 4)
@@ -114,6 +111,7 @@ Run analysis on data:
 5. Click test_dataset with given name xxxx (Applications - refresh if you cannot see the application buttons)
 6. Select whatever application you want (here FastQCApp), and submit
 7. Wait for some minutes, and check the result (by clicking on DataSets once again)
+Remember to terminate the task if app is not needed anymore by pressing control+c or killing the process as described above.    
 
 ### Creating aliases
 This way one doesn't always have to type all the commands  
