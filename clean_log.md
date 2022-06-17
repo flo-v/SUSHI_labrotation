@@ -113,6 +113,7 @@ Run analysis on data:
 7. Wait for some minutes, and check the result (by clicking on DataSets once again)  
   
 Remember to terminate the task if app is not needed anymore by pressing control+c or killing the process as described above.    
+Sometimes the local command line can be irresponsive after connecting to the VPN. In this case just disconnect from the VPN and it should work again.  
 
 ### Creating aliases
 This way one doesn't always have to type all the commands  
@@ -131,8 +132,11 @@ colo industry # setting default colourscheme
 ```
 
 ## Creating new apps
+There are three main components of getting code to run in the sushi framework:
+There is a ruby script managing input parameters and copying files to the right places etc. This script calls on a R app that does most of the computation eg. pca calculations) and finally markdwon templates that display the results eg. as plots.
 
-Creating identical FastqcApp under new name:
+To start and get a feeling on how the apps work one can copy an existing app an rename it. (One can of course also start by building one's own app from scratch)  
+Eg. by creating an identical FastqcApp.rb under new name (FastqcApp_1.rb):
 ```
 fvetsc@fgcz-c-047:/srv/kenlab/flo/flo_sushi_20220510/master/lib
 $ cp FastqcApp.rb Fastqc_1App.rb
@@ -146,17 +150,39 @@ $ git push
 ```
 Test if app works by running [sushi](#executing-sushi-steps) (or by using alias "strt" on kenlab server). Then perform [fgcz](#fgcz-website-steps) steps.
 
+The next step is to alter the call to the R app in the ruby script in the function ```commands``` with the call ```run_RApp("EzAppFastQC_1")```.  
+Then create the R app with said name:  
+```
+fvetsc@fgcz-h-176:~/ezRun/R$
+cp app-fastQC.R ./app-fastQC_1.R
+```
+Replace the names with the new given names in the R app and then: 
+Create the markdown templates that are associated with it.  
+```
+fvetsc@fgcz-h-176:/srv/GT/analysis/florian/ezRun/inst/templates$
+cp FastQC.Rmd FastQC_1.Rmd
+cp FastQC_overview.Rmd FastQC_1_overview.Rmd
+```
+Then reinstall ezRun, test if app works by running [sushi](#executing-sushi-steps) (or by using alias "strt" on kenlab server).   
+Then perform [fgcz](#fgcz-website-steps) steps.  
+Remember to push changes onto the onlinge git repo if things work.
 
-
-
-
-  library("fastreeR", lib.loc = "/misc/GT/analysis/florian/R_LIBS")
-  
-  fvetsc@fgcz-h-176:/srv/GT/analysis/florian$
+Then one can start to change the contents of the R app and markdwon templates however one needs to.  
+If extra R libraries are needed one can installed them in a directory where one has writing permissions. 
+eg:
+```
+fvetsc@fgcz-h-176:/srv/GT/analysis/florian$
 $R
 BiocManager::install("fastreeR", lib="/misc/GT/analysis/florian/R_LIBS")
-
-ezSystem (system.R) -> ezWrite
+```
+To load the libraries in the R app it may be necessary to also specify this path:  
+```
+library("fastreeR", lib.loc = "/misc/GT/analysis/florian/R_LIBS")
+```
+Then reinstall ezRun, run sushi and check if app with new templates works and push to github.  
+  
+  
+  ezSystem (system.R) -> ezWrite
 
 
 (cmd)
@@ -169,16 +195,13 @@ vcf / gds transformation
 explain again please where the output of my analysis is stored and then accessed from the markdwon files
 
 
-Then push to github, reinstall ezRun, run sushi and check if app with new templates works.
 
 
-fvetsc@fgcz-h-176:/srv/GT/analysis/florian/ezRun/inst/templates$
-cp FastQC.Rmd FastQC_1.Rmd
-cp FastQC_overview.Rmd FastQC_1_overview.Rmd
 
 
-fvetsc@fgcz-h-176:~/ezRun/R$
-cp app-fastQC.R ./app-fastQC_1.R
+
+
+
 
 
 ```
