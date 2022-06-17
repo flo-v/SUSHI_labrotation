@@ -181,34 +181,3 @@ library("fastreeR", lib.loc = "/misc/GT/analysis/florian/R_LIBS")
 ```
 Then reinstall ezRun, run sushi and check if app with new templates works and push to github.  
 
-
-
-
-
-
-
-
-
-
-
-
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
