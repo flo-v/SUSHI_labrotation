@@ -1,5 +1,5 @@
 # Clean_log SUSHI labrotation
-A cleaner version of the labrotation log(https://github.com/flo-v/SUSHI_labrotation#sushi_labrotation), that reduces redundancies  
+A cleaner version of the [labrotation log](https://github.com/flo-v/SUSHI_labrotation#sushi_labrotation), that reduces redundancies.  
 This document is hopefully of use for the next person building a sushi app.  
 (Written by Florian Vetsch 2022)
 
@@ -110,7 +110,8 @@ Run analysis on data:
 4. Confirm by clickin DataSet in menu
 5. Click test_dataset with given name xxxx (Applications - refresh if you cannot see the application buttons)
 6. Select whatever application you want (here FastQCApp), and submit
-7. Wait for some minutes, and check the result (by clicking on DataSets once again)
+7. Wait for some minutes, and check the result (by clicking on DataSets once again)  
+  
 Remember to terminate the task if app is not needed anymore by pressing control+c or killing the process as described above.    
 
 ### Creating aliases
@@ -149,8 +150,38 @@ Test if app works by running [sushi](#executing-sushi-steps) (or by using alias 
 
 
 
+  library("fastreeR", lib.loc = "/misc/GT/analysis/florian/R_LIBS")
+  
+  fvetsc@fgcz-h-176:/srv/GT/analysis/florian$
+$R
+BiocManager::install("fastreeR", lib="/misc/GT/analysis/florian/R_LIBS")
+
+ezSystem (system.R) -> ezWrite
 
 
+(cmd)
+
+EzAppFastqc
+
+If I understand correctly: app-VcfStats.R does not do the SNP counting itself. The counting is done via bash command by the "vcf-stats" command line tool.
+I do not really understood yet what the equvialent to this would be when wanting to get the data ready for the pca plot. Do I simply do all in the R file or do I need to call on a command line tool?
+vcf / gds transformation
+explain again please where the output of my analysis is stored and then accessed from the markdwon files
+
+
+Then push to github, reinstall ezRun, run sushi and check if app with new templates works.
+
+
+fvetsc@fgcz-h-176:/srv/GT/analysis/florian/ezRun/inst/templates$
+cp FastQC.Rmd FastQC_1.Rmd
+cp FastQC_overview.Rmd FastQC_1_overview.Rmd
+
+
+fvetsc@fgcz-h-176:~/ezRun/R$
+cp app-fastQC.R ./app-fastQC_1.R
+
+
+```
 
 
 
