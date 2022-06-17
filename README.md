@@ -601,15 +601,15 @@ Here is where the dataanalysis in R is coded
 This is were the R class is created (inherits from ezApp superclass). In the class ezMethod<application_name> is called
 
 ezRun/inst/templates contains the markdown documents associated with the specific R apps, the analysis done in the App that is in directory "R".  
-The Results are loaded in the template and then only the plotting is done in the markdown template.
+The markdown templates and the R app share the same namespace (variables created in the app are accessible in the markdwon). The plotting is done in the markdown template.
 Tabs on sushi webpage html output corresond to sections under title in the template
 
 ezRun must be installed again, every time that changes in Apps (R) or templates (R Markdown) are made
 
+In some cases the analysis is not really done by the R app, but the R app calls an external software that does it. Eg. in ```app-VcfStats.R``` a command is specified which is passed to the function ```ezSystem``` (is in ```system.R```) which calls on ```ezWrite``` (is in ```io.R```) which executes the command line tool vcf-stats.
 
 In sushi webpage: Index shows path to file on gstore of functional genomics center (there I only have read permissions) therefore copying of files necessarry for editing   
 To be able to use VcfStatsApp we need to add column namede "Dummy" as column Name requirements of app must be fulfilled by dataset (check column requirements in Help--SushiApp List
-Use SNPrelate library for phylogenetic trees
 
 
 
