@@ -180,19 +180,7 @@ To load the libraries in the R app it may be necessary to also specify this path
 library("fastreeR", lib.loc = "/misc/GT/analysis/florian/R_LIBS")
 ```
 Then reinstall ezRun, run sushi and check if app with new templates works and push to github.  
-  
-  
-  ezSystem (system.R) -> ezWrite
 
-
-(cmd)
-
-EzAppFastqc
-
-If I understand correctly: app-VcfStats.R does not do the SNP counting itself. The counting is done via bash command by the "vcf-stats" command line tool.
-I do not really understood yet what the equvialent to this would be when wanting to get the data ready for the pca plot. Do I simply do all in the R file or do I need to call on a command line tool?
-vcf / gds transformation
-explain again please where the output of my analysis is stored and then accessed from the markdwon files
 
 
 
