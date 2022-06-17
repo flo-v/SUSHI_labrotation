@@ -21,12 +21,12 @@ General info on how sushi works by Florian
 
 ### Setting up basics
 
-1. Get windows subsystem (or any other way to use bash commands on local mashine)
+1. Get windows subsystem (or any other way to use bash commands on local machine)
 2. Create personal Github account (if not already existing)
 3. Making a git repository, for the lab rotation (to keep the working log updated)
 4. Fork SUSHI repository
 5. Fork ezRun repository
-6. Connect Git Repos via ssh with local mashine (https://www.linuxfordevices.com/tutorials/linux/connect-to-github-with-ssh)
+6. Connect Git Repos via ssh with local machine (https://www.linuxfordevices.com/tutorials/linux/connect-to-github-with-ssh)
 
 @ Masa what did you have to do permission wise to let me use the servers? on the first meeting and then with the second in person meeting
 @ Masa what permission did you have to give me for the functional genomics server?
@@ -104,10 +104,10 @@ Then do:
 Start VPN (if not in UZH network) and accessed http://fgcz-c-047.uzh.ch:5000: (5000 or whatever number defined in rails execution)   
 Logging in with username  
 Run analysis on data:
-1. Select project 1535 ((if data-to-be-analyzed is already loaded in sushi skip directly to step 4)
+1. Select project 1535 ((if data-to-be-analysed is already loaded in sushi skip directly to step 4)
 2. gStore-ventricles_100k-test_masa_dataset.tsv (or other data; download, if not already done)
 3. Import-Browse-test_masa_dataset.tsv-DataSet (or use other data), define Name:xxxx-load dataset
-4. Confirm by clickin DataSet in menu
+4. Confirm by clicking DataSet in menu
 5. Click test_dataset with given name xxxx (Applications - refresh if you cannot see the application buttons)
 6. Select whatever application you want (here FastQCApp), and submit
 7. Wait for some minutes, and check the result (by clicking on DataSets once again)  
@@ -133,7 +133,7 @@ colo industry # setting default colourscheme
 
 ## Creating new apps
 There are three main components of getting code to run in the sushi framework:
-There is a ruby script managing input parameters and copying files to the right places etc. This script calls on a R app that does most of the computation eg. pca calculations) and finally markdwon templates that display the results eg. as plots.
+There is a ruby script managing input parameters and copying files to the right places etc. This script calls on a R app that does most of the computation eg. pca calculations) and finally markdown templates that display the results eg. as plots.
 
 To start and get a feeling on how the apps work one can copy an existing app an rename it. (One can of course also start by building one's own app from scratch)  
 Eg. by creating an identical FastqcApp.rb under new name (FastqcApp_1.rb):
@@ -165,9 +165,9 @@ cp FastQC_overview.Rmd FastQC_1_overview.Rmd
 ```
 Then reinstall ezRun, test if app works by running [sushi](#executing-sushi-steps) (or by using alias "strt" on kenlab server).   
 Then perform [fgcz](#fgcz-website-steps) steps.  
-Remember to push changes onto the onlinge git repo if things work.
+Remember to push changes onto the online git repo if things work.
 
-Then one can start to change the contents of the R app and markdwon templates however one needs to.  
+Then one can start to change the contents of the R app and markdown templates however one needs to.  
 If extra R libraries are needed one can installed them in a directory where one has writing permissions. 
 eg:
 ```
